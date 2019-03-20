@@ -1,0 +1,8 @@
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\bin\Debug\Reservation_System.exe
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\bin\Debug\Reservation_System.pdb
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\Reservation_System.Properties.Resources.resources
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\Reservation_System.csproj.GenerateResource.Cache
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\Reservation_System.exe
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\Reservation_System.pdb
+C:\Users\jammm\Desktop\repositories\Reservation_System\Reservation_System\obj\Debug\Reservation_System.Main.resources
