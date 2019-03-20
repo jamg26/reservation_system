@@ -236,7 +236,7 @@
             // 
             // room1
             // 
-            this.room1.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room1.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room1.Location = new System.Drawing.Point(28, 6);
             this.room1.Name = "room1";
             this.room1.Size = new System.Drawing.Size(60, 56);
@@ -303,7 +303,7 @@
             // 
             // room2
             // 
-            this.room2.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room2.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room2.Location = new System.Drawing.Point(123, 6);
             this.room2.Name = "room2";
             this.room2.Size = new System.Drawing.Size(60, 56);
@@ -390,7 +390,7 @@
             // 
             // room17
             // 
-            this.room17.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room17.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room17.Location = new System.Drawing.Point(123, 268);
             this.room17.Name = "room17";
             this.room17.Size = new System.Drawing.Size(60, 56);
@@ -428,7 +428,7 @@
             // 
             // room16
             // 
-            this.room16.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room16.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room16.Location = new System.Drawing.Point(28, 268);
             this.room16.Name = "room16";
             this.room16.Size = new System.Drawing.Size(60, 56);
@@ -466,7 +466,7 @@
             // 
             // room15
             // 
-            this.room15.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room15.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room15.Location = new System.Drawing.Point(398, 181);
             this.room15.Name = "room15";
             this.room15.Size = new System.Drawing.Size(60, 56);
@@ -494,7 +494,7 @@
             // 
             // room8
             // 
-            this.room8.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room8.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room8.Location = new System.Drawing.Point(216, 94);
             this.room8.Name = "room8";
             this.room8.Size = new System.Drawing.Size(60, 56);
@@ -504,7 +504,7 @@
             // 
             // room14
             // 
-            this.room14.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room14.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room14.Location = new System.Drawing.Point(306, 181);
             this.room14.Name = "room14";
             this.room14.Size = new System.Drawing.Size(60, 56);
@@ -532,7 +532,7 @@
             // 
             // room9
             // 
-            this.room9.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room9.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room9.Location = new System.Drawing.Point(306, 94);
             this.room9.Name = "room9";
             this.room9.Size = new System.Drawing.Size(60, 56);
@@ -570,7 +570,7 @@
             // 
             // room10
             // 
-            this.room10.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room10.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room10.Location = new System.Drawing.Point(398, 94);
             this.room10.Name = "room10";
             this.room10.Size = new System.Drawing.Size(60, 56);
@@ -608,7 +608,7 @@
             // 
             // room11
             // 
-            this.room11.Image = global::Reservation_System.Properties.Resources.doorGreen;
+            this.room11.Image = global::Reservation_System.Properties.Resources.doorCyan;
             this.room11.Location = new System.Drawing.Point(28, 181);
             this.room11.Name = "room11";
             this.room11.Size = new System.Drawing.Size(60, 56);

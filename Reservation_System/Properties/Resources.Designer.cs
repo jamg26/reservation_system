@@ -67,9 +67,9 @@ namespace Reservation_System.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap doorGreen {
+        internal static System.Drawing.Bitmap doorCyan {
             get {
-                object obj = ResourceManager.GetObject("doorGreen", resourceCulture);
+                object obj = ResourceManager.GetObject("doorCyan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

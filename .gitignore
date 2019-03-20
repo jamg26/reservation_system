@@ -1,0 +1,11 @@
+Thumb.db
+autorun.inf
+Information_System_Galicia/bin/
+Information_System_Galicia/obj/
+Information_System_Galicia/bin/Debug/Information_System_Galicia.exe
+Information_System_Galicia/bin/Debug/Information_System_Galicia.pdb
+Information_System_Galicia/obj/Debug/Information_System_Galicia.exe
+Information_System_Galicia/obj/Debug/Information_System_Galicia.pdb
+Information_System_Galicia.suo
+.vscode/launch.json
+*.lnk
