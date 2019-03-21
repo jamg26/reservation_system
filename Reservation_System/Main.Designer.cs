@@ -87,14 +87,12 @@
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.groupBoxMenu = new System.Windows.Forms.GroupBox();
             this.groupBoxClient = new System.Windows.Forms.GroupBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.txtRoomOwner = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.RoomTabTool.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -797,80 +795,15 @@
             // 
             this.groupBoxClient.Controls.Add(this.label39);
             this.groupBoxClient.Controls.Add(this.btnUpdate);
-            this.groupBoxClient.Controls.Add(this.textBox3);
-            this.groupBoxClient.Controls.Add(this.label38);
-            this.groupBoxClient.Controls.Add(this.textBox2);
-            this.groupBoxClient.Controls.Add(this.label37);
-            this.groupBoxClient.Controls.Add(this.textBox1);
+            this.groupBoxClient.Controls.Add(this.txtRoomId);
+            this.groupBoxClient.Controls.Add(this.txtRoomOwner);
+            this.groupBoxClient.Controls.Add(this.label40);
             this.groupBoxClient.Controls.Add(this.label36);
-            this.groupBoxClient.Location = new System.Drawing.Point(12, 11);
+            this.groupBoxClient.Location = new System.Drawing.Point(0, 0);
             this.groupBoxClient.Name = "groupBoxClient";
             this.groupBoxClient.Size = new System.Drawing.Size(389, 427);
             this.groupBoxClient.TabIndex = 0;
             this.groupBoxClient.TabStop = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(194, 192);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(19, 154);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 32);
-            this.textBox3.TabIndex = 4;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(16, 138);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(42, 13);
-            this.label38.TabIndex = 3;
-            this.label38.Text = "Gender";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(19, 103);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 32);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(16, 87);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(26, 13);
-            this.label37.TabIndex = 3;
-            this.label37.Text = "Age";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(19, 53);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 32);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(16, 37);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(49, 13);
-            this.label36.TabIndex = 3;
-            this.label36.Text = "Fullname";
             // 
             // label39
             // 
@@ -883,13 +816,59 @@
             this.label39.Text = "X";
             this.label39.Click += new System.EventHandler(this.label39_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(289, 149);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // txtRoomId
+            // 
+            this.txtRoomId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomId.Location = new System.Drawing.Point(12, 50);
+            this.txtRoomId.Multiline = true;
+            this.txtRoomId.Name = "txtRoomId";
+            this.txtRoomId.Size = new System.Drawing.Size(352, 32);
+            this.txtRoomId.TabIndex = 4;
+            // 
+            // txtRoomOwner
+            // 
+            this.txtRoomOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomOwner.Location = new System.Drawing.Point(12, 99);
+            this.txtRoomOwner.Multiline = true;
+            this.txtRoomOwner.Name = "txtRoomOwner";
+            this.txtRoomOwner.Size = new System.Drawing.Size(352, 32);
+            this.txtRoomOwner.TabIndex = 4;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(9, 34);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(35, 13);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Room";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(9, 83);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(49, 13);
+            this.label36.TabIndex = 3;
+            this.label36.Text = "Fullname";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 450);
-            this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.groupBoxClient);
+            this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.RoomTabTool);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -995,14 +974,12 @@
         private System.Windows.Forms.GroupBox groupBoxLogin;
         private System.Windows.Forms.GroupBox groupBoxMenu;
         private System.Windows.Forms.GroupBox groupBoxClient;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRoomOwner;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox txtRoomId;
+        private System.Windows.Forms.Label label40;
     }
 }
 

@@ -80,6 +80,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\doorBlack.png" />

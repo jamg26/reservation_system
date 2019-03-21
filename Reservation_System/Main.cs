@@ -68,17 +68,25 @@ namespace Reservation_System {
             showHide("menu", false);
             showHide("client", true);
             groupBoxClient.Text = "Client in room 1";
+            txtRoomId.Text = "1";
         }
 
         private void room2_Click(object sender, EventArgs e) {
             showHide("menu", false);
             showHide("client", true);
             groupBoxClient.Text = "Client in room 2";
+            txtRoomId.Text = "2";
         }
 
         private void label39_Click(object sender, EventArgs e) {
             showHide("client", false);
             showHide("menu", true);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Room room = new Room();
+            room.setRoomOwner(txtRoomId.Text, txtRoomOwner.Text);
         }
     }
 }
