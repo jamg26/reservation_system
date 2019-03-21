@@ -45,6 +45,7 @@ namespace Reservation_System {
             sda.UpdateCommand.ExecuteNonQuery();
             connect.Close();
         }
+
         public System.Data.DataTable dbSelect(string query) {
             connect.Open();
             SqlCommand cmd = new SqlCommand(query, connect);

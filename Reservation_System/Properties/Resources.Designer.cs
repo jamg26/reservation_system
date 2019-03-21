@@ -80,5 +80,12 @@ namespace Reservation_System.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Icon jamg {
+            get {
+                object obj = ResourceManager.GetObject("jamg", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

@@ -15,18 +15,5 @@ namespace Reservation_System
             dt = room.dbSelect("SELECT * FROM room");
             return dt;
         }
-        public void setRoomState(int roomid) { 
-            
-        }
-        public void setRoomOwner(int roomid, string owner) {
-            dbClass room = new dbClass();
-            room.dbUpdate("UPDATE room set owner = " + owner + " WHERE id = " + roomid);
-        }
-        public void delRoomOwner(int roomid) { 
-        
-        }
-        public void getRoomInfo(int roomid) { 
-            
-        }
     }
 }
