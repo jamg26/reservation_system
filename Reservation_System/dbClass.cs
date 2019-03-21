@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Data;
 
 namespace Reservation_System {
     class dbClass {
 
-        SqlConnection connect = this.getConnection();
+        SqlConnection connect = getConnection();
 
         public static SqlConnection getConnection() {
             string dbServer = "35.198.198.212";
@@ -43,6 +44,15 @@ namespace Reservation_System {
             connect.Open();
             sda.UpdateCommand.ExecuteNonQuery();
             connect.Close();
+        }
+        public System.Data.DataTable dbSelect(string query) {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand(query, connect);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            connect.Close();
+            return dt;
         }
     }
 }

@@ -36,6 +36,14 @@ namespace Reservation_System {
             showHide("room", false);
             showHide("menu", false);
             showHide("client", false);
+            Room room = new Room();
+            System.Data.DataTable states = room.getRoomState();
+            MessageBox.Show(states.Rows[0][3].ToString());
+            for (int x = 0; x < 20; x++) {
+                if (states.Rows[x][3].ToString() == "available") {
+                    room1.Image = Properties.Resources.doorAvailable;
+                }
+            }
         }
 
         private System.Data.DataTable loginQuery(string username, string password) {
@@ -86,7 +94,132 @@ namespace Reservation_System {
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Room room = new Room();
-            room.setRoomOwner(txtRoomId.Text, txtRoomOwner.Text);
+        }
+
+        private void room3_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 3";
+            txtRoomId.Text = "3";
+        }
+
+        private void room4_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 4";
+            txtRoomId.Text = "4";
+        }
+
+        private void room5_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 5";
+            txtRoomId.Text = "5";
+        }
+
+        private void room6_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 6";
+            txtRoomId.Text = "6";
+        }
+
+        private void room7_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 7";
+            txtRoomId.Text = "7";
+        }
+
+        private void room8_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 8";
+            txtRoomId.Text = "8";
+        }
+
+        private void room9_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 9";
+            txtRoomId.Text = "9";
+        }
+
+        private void room10_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 10";
+            txtRoomId.Text = "10";
+        }
+
+        private void room11_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 11";
+            txtRoomId.Text = "11";
+        }
+
+        private void room12_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 12";
+            txtRoomId.Text = "12";
+        }
+
+        private void room13_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 13";
+            txtRoomId.Text = "13";
+        }
+
+        private void room14_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 14";
+            txtRoomId.Text = "14";
+        }
+
+        private void room15_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 15";
+            txtRoomId.Text = "15";
+        }
+
+        private void room16_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 16";
+            txtRoomId.Text = "16";
+        }
+
+        private void room17_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 17";
+            txtRoomId.Text = "17";
+        }
+
+        private void room18_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 18";
+            txtRoomId.Text = "18";
+        }
+
+        private void room19_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 19";
+            txtRoomId.Text = "19";
+        }
+
+        private void room20_Click(object sender, EventArgs e) {
+            showHide("menu", false);
+            showHide("client", true);
+            groupBoxClient.Text = "Client in room 20";
+            txtRoomId.Text = "20";
         }
     }
 }

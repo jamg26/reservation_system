@@ -30,46 +30,26 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.RoomTabTool = new System.Windows.Forms.TabControl();
             this.RoomTab = new System.Windows.Forms.TabPage();
-            this.room1 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.room3 = new System.Windows.Forms.PictureBox();
-            this.room20 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.room2 = new System.Windows.Forms.PictureBox();
-            this.room19 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.room4 = new System.Windows.Forms.PictureBox();
-            this.room18 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.room5 = new System.Windows.Forms.PictureBox();
-            this.room17 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.room6 = new System.Windows.Forms.PictureBox();
-            this.room16 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.room7 = new System.Windows.Forms.PictureBox();
-            this.room15 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.room8 = new System.Windows.Forms.PictureBox();
-            this.room14 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.room9 = new System.Windows.Forms.PictureBox();
-            this.room13 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.room10 = new System.Windows.Forms.PictureBox();
-            this.room12 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.room11 = new System.Windows.Forms.PictureBox();
             this.ClientTab = new System.Windows.Forms.TabPage();
             this.label35 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -86,15 +66,58 @@
             this.label32 = new System.Windows.Forms.Label();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.groupBoxMenu = new System.Windows.Forms.GroupBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.groupBoxClient = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtRoomId = new System.Windows.Forms.TextBox();
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.room1 = new System.Windows.Forms.PictureBox();
+            this.room3 = new System.Windows.Forms.PictureBox();
+            this.room20 = new System.Windows.Forms.PictureBox();
+            this.room2 = new System.Windows.Forms.PictureBox();
+            this.room19 = new System.Windows.Forms.PictureBox();
+            this.room4 = new System.Windows.Forms.PictureBox();
+            this.room18 = new System.Windows.Forms.PictureBox();
+            this.room5 = new System.Windows.Forms.PictureBox();
+            this.room17 = new System.Windows.Forms.PictureBox();
+            this.room6 = new System.Windows.Forms.PictureBox();
+            this.room16 = new System.Windows.Forms.PictureBox();
+            this.room7 = new System.Windows.Forms.PictureBox();
+            this.room15 = new System.Windows.Forms.PictureBox();
+            this.room8 = new System.Windows.Forms.PictureBox();
+            this.room14 = new System.Windows.Forms.PictureBox();
+            this.room9 = new System.Windows.Forms.PictureBox();
+            this.room13 = new System.Windows.Forms.PictureBox();
+            this.room10 = new System.Windows.Forms.PictureBox();
+            this.room12 = new System.Windows.Forms.PictureBox();
+            this.room11 = new System.Windows.Forms.PictureBox();
             this.RoomTabTool.SuspendLayout();
             this.RoomTab.SuspendLayout();
+            this.ClientTab.SuspendLayout();
+            this.groupBoxLogin.SuspendLayout();
+            this.groupBoxMenu.SuspendLayout();
+            this.groupBoxClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room20)).BeginInit();
@@ -115,9 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).BeginInit();
-            this.ClientTab.SuspendLayout();
-            this.groupBoxLogin.SuspendLayout();
-            this.groupBoxClient.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -232,17 +252,6 @@
             this.RoomTab.Text = "Rooms";
             this.RoomTab.UseVisualStyleBackColor = true;
             // 
-            // room1
-            // 
-            this.room1.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room1.Location = new System.Drawing.Point(28, 6);
-            this.room1.Name = "room1";
-            this.room1.Size = new System.Drawing.Size(60, 56);
-            this.room1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room1.TabIndex = 21;
-            this.room1.TabStop = false;
-            this.room1.Click += new System.EventHandler(this.room1_Click);
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -260,26 +269,6 @@
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 54;
             this.label3.Text = "1";
-            // 
-            // room3
-            // 
-            this.room3.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room3.Location = new System.Drawing.Point(216, 6);
-            this.room3.Name = "room3";
-            this.room3.Size = new System.Drawing.Size(60, 56);
-            this.room3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room3.TabIndex = 22;
-            this.room3.TabStop = false;
-            // 
-            // room20
-            // 
-            this.room20.Image = global::Reservation_System.Properties.Resources.doorBlack;
-            this.room20.Location = new System.Drawing.Point(398, 268);
-            this.room20.Name = "room20";
-            this.room20.Size = new System.Drawing.Size(60, 56);
-            this.room20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room20.TabIndex = 40;
-            this.room20.TabStop = false;
             // 
             // label17
             // 
@@ -299,27 +288,6 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "6";
             // 
-            // room2
-            // 
-            this.room2.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room2.Location = new System.Drawing.Point(123, 6);
-            this.room2.Name = "room2";
-            this.room2.Size = new System.Drawing.Size(60, 56);
-            this.room2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room2.TabIndex = 23;
-            this.room2.TabStop = false;
-            this.room2.Click += new System.EventHandler(this.room2_Click);
-            // 
-            // room19
-            // 
-            this.room19.Image = global::Reservation_System.Properties.Resources.doorBlack;
-            this.room19.Location = new System.Drawing.Point(306, 268);
-            this.room19.Name = "room19";
-            this.room19.Size = new System.Drawing.Size(60, 56);
-            this.room19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room19.TabIndex = 39;
-            this.room19.TabStop = false;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -337,26 +305,6 @@
             this.label13.Size = new System.Drawing.Size(19, 13);
             this.label13.TabIndex = 52;
             this.label13.Text = "11";
-            // 
-            // room4
-            // 
-            this.room4.Image = global::Reservation_System.Properties.Resources.doorBlack;
-            this.room4.Location = new System.Drawing.Point(306, 6);
-            this.room4.Name = "room4";
-            this.room4.Size = new System.Drawing.Size(60, 56);
-            this.room4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room4.TabIndex = 24;
-            this.room4.TabStop = false;
-            // 
-            // room18
-            // 
-            this.room18.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room18.Location = new System.Drawing.Point(216, 268);
-            this.room18.Name = "room18";
-            this.room18.Size = new System.Drawing.Size(60, 56);
-            this.room18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room18.TabIndex = 38;
-            this.room18.TabStop = false;
             // 
             // label7
             // 
@@ -376,26 +324,6 @@
             this.label18.TabIndex = 53;
             this.label18.Text = "16";
             // 
-            // room5
-            // 
-            this.room5.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room5.Location = new System.Drawing.Point(398, 6);
-            this.room5.Name = "room5";
-            this.room5.Size = new System.Drawing.Size(60, 56);
-            this.room5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room5.TabIndex = 25;
-            this.room5.TabStop = false;
-            // 
-            // room17
-            // 
-            this.room17.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room17.Location = new System.Drawing.Point(123, 268);
-            this.room17.Name = "room17";
-            this.room17.Size = new System.Drawing.Size(60, 56);
-            this.room17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room17.TabIndex = 37;
-            this.room17.TabStop = false;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -413,26 +341,6 @@
             this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 56;
             this.label4.Text = "2";
-            // 
-            // room6
-            // 
-            this.room6.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room6.Location = new System.Drawing.Point(28, 94);
-            this.room6.Name = "room6";
-            this.room6.Size = new System.Drawing.Size(60, 56);
-            this.room6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room6.TabIndex = 26;
-            this.room6.TabStop = false;
-            // 
-            // room16
-            // 
-            this.room16.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room16.Location = new System.Drawing.Point(28, 268);
-            this.room16.Name = "room16";
-            this.room16.Size = new System.Drawing.Size(60, 56);
-            this.room16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room16.TabIndex = 36;
-            this.room16.TabStop = false;
             // 
             // label16
             // 
@@ -452,26 +360,6 @@
             this.label9.TabIndex = 59;
             this.label9.Text = "7";
             // 
-            // room7
-            // 
-            this.room7.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room7.Location = new System.Drawing.Point(123, 94);
-            this.room7.Name = "room7";
-            this.room7.Size = new System.Drawing.Size(60, 56);
-            this.room7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room7.TabIndex = 27;
-            this.room7.TabStop = false;
-            // 
-            // room15
-            // 
-            this.room15.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room15.Location = new System.Drawing.Point(398, 181);
-            this.room15.Name = "room15";
-            this.room15.Size = new System.Drawing.Size(60, 56);
-            this.room15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room15.TabIndex = 35;
-            this.room15.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -489,26 +377,6 @@
             this.label14.Size = new System.Drawing.Size(19, 13);
             this.label14.TabIndex = 60;
             this.label14.Text = "12";
-            // 
-            // room8
-            // 
-            this.room8.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room8.Location = new System.Drawing.Point(216, 94);
-            this.room8.Name = "room8";
-            this.room8.Size = new System.Drawing.Size(60, 56);
-            this.room8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room8.TabIndex = 28;
-            this.room8.TabStop = false;
-            // 
-            // room14
-            // 
-            this.room14.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room14.Location = new System.Drawing.Point(306, 181);
-            this.room14.Name = "room14";
-            this.room14.Size = new System.Drawing.Size(60, 56);
-            this.room14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room14.TabIndex = 34;
-            this.room14.TabStop = false;
             // 
             // label6
             // 
@@ -528,26 +396,6 @@
             this.label19.TabIndex = 57;
             this.label19.Text = "17";
             // 
-            // room9
-            // 
-            this.room9.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room9.Location = new System.Drawing.Point(306, 94);
-            this.room9.Name = "room9";
-            this.room9.Size = new System.Drawing.Size(60, 56);
-            this.room9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room9.TabIndex = 29;
-            this.room9.TabStop = false;
-            // 
-            // room13
-            // 
-            this.room13.Image = global::Reservation_System.Properties.Resources.doorBlack;
-            this.room13.Location = new System.Drawing.Point(216, 181);
-            this.room13.Name = "room13";
-            this.room13.Size = new System.Drawing.Size(60, 56);
-            this.room13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room13.TabIndex = 33;
-            this.room13.TabStop = false;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -566,26 +414,6 @@
             this.label5.TabIndex = 58;
             this.label5.Text = "3";
             // 
-            // room10
-            // 
-            this.room10.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room10.Location = new System.Drawing.Point(398, 94);
-            this.room10.Name = "room10";
-            this.room10.Size = new System.Drawing.Size(60, 56);
-            this.room10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room10.TabIndex = 30;
-            this.room10.TabStop = false;
-            // 
-            // room12
-            // 
-            this.room12.Image = global::Reservation_System.Properties.Resources.doorRed;
-            this.room12.Location = new System.Drawing.Point(123, 181);
-            this.room12.Name = "room12";
-            this.room12.Size = new System.Drawing.Size(60, 56);
-            this.room12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room12.TabIndex = 32;
-            this.room12.TabStop = false;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -603,16 +431,6 @@
             this.label10.Size = new System.Drawing.Size(13, 13);
             this.label10.TabIndex = 51;
             this.label10.Text = "8";
-            // 
-            // room11
-            // 
-            this.room11.Image = global::Reservation_System.Properties.Resources.doorCyan;
-            this.room11.Location = new System.Drawing.Point(28, 181);
-            this.room11.Name = "room11";
-            this.room11.Size = new System.Drawing.Size(60, 56);
-            this.room11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.room11.TabIndex = 31;
-            this.room11.TabStop = false;
             // 
             // ClientTab
             // 
@@ -784,15 +602,61 @@
             // 
             // groupBoxMenu
             // 
-            this.groupBoxMenu.Location = new System.Drawing.Point(12, 13);
+            this.groupBoxMenu.Controls.Add(this.label49);
+            this.groupBoxMenu.Controls.Add(this.label48);
+            this.groupBoxMenu.Controls.Add(this.label46);
+            this.groupBoxMenu.Location = new System.Drawing.Point(12, 15);
             this.groupBoxMenu.Name = "groupBoxMenu";
-            this.groupBoxMenu.Size = new System.Drawing.Size(389, 425);
+            this.groupBoxMenu.Size = new System.Drawing.Size(393, 423);
             this.groupBoxMenu.TabIndex = 5;
             this.groupBoxMenu.TabStop = false;
             this.groupBoxMenu.Text = "Menu";
             // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(12, 63);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(85, 13);
+            this.label49.TabIndex = 2;
+            this.label49.Text = "Pending Rooms:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(12, 47);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(92, 13);
+            this.label48.TabIndex = 1;
+            this.label48.Text = "Reserved Rooms:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(12, 31);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(70, 13);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Total Rooms:";
+            // 
             // groupBoxClient
             // 
+            this.groupBoxClient.Controls.Add(this.textBox1);
+            this.groupBoxClient.Controls.Add(this.label47);
+            this.groupBoxClient.Controls.Add(this.label44);
+            this.groupBoxClient.Controls.Add(this.label45);
+            this.groupBoxClient.Controls.Add(this.radioButton2);
+            this.groupBoxClient.Controls.Add(this.radioButton1);
+            this.groupBoxClient.Controls.Add(this.comboBox4);
+            this.groupBoxClient.Controls.Add(this.comboBox3);
+            this.groupBoxClient.Controls.Add(this.label43);
+            this.groupBoxClient.Controls.Add(this.label42);
+            this.groupBoxClient.Controls.Add(this.label41);
+            this.groupBoxClient.Controls.Add(this.txtEmail);
+            this.groupBoxClient.Controls.Add(this.label38);
+            this.groupBoxClient.Controls.Add(this.comboBox2);
+            this.groupBoxClient.Controls.Add(this.comboBox1);
+            this.groupBoxClient.Controls.Add(this.label37);
             this.groupBoxClient.Controls.Add(this.label39);
             this.groupBoxClient.Controls.Add(this.btnUpdate);
             this.groupBoxClient.Controls.Add(this.txtRoomId);
@@ -804,6 +668,277 @@
             this.groupBoxClient.Size = new System.Drawing.Size(389, 427);
             this.groupBoxClient.TabIndex = 0;
             this.groupBoxClient.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 202);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(371, 32);
+            this.textBox1.TabIndex = 23;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(9, 188);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(122, 13);
+            this.label47.TabIndex = 22;
+            this.label47.Text = "Mobile (09XXXXXXXXX)";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.ForeColor = System.Drawing.Color.Red;
+            this.label44.Location = new System.Drawing.Point(40, 276);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(11, 13);
+            this.label44.TabIndex = 21;
+            this.label44.Text = "*";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(9, 276);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(30, 13);
+            this.label45.TabIndex = 20;
+            this.label45.Text = "Time";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(251, 294);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(41, 17);
+            this.radioButton2.TabIndex = 19;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "PM";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(204, 294);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(41, 17);
+            this.radioButton1.TabIndex = 18;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "AM";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboBox4.Location = new System.Drawing.Point(108, 290);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(90, 21);
+            this.comboBox4.TabIndex = 17;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox3.Location = new System.Drawing.Point(12, 290);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(90, 21);
+            this.comboBox3.TabIndex = 16;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.ForeColor = System.Drawing.Color.Red;
+            this.label43.Location = new System.Drawing.Point(40, 239);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(11, 13);
+            this.label43.TabIndex = 15;
+            this.label43.Text = "*";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(64, 85);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(11, 13);
+            this.label42.TabIndex = 14;
+            this.label42.Text = "*";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.ForeColor = System.Drawing.Color.Red;
+            this.label41.Location = new System.Drawing.Point(41, 135);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(11, 13);
+            this.label41.TabIndex = 13;
+            this.label41.Text = "*";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(13, 150);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(371, 32);
+            this.txtEmail.TabIndex = 12;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(10, 136);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(32, 13);
+            this.label38.TabIndex = 11;
+            this.label38.Text = "Email";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.comboBox2.Location = new System.Drawing.Point(108, 252);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(54, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 252);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(90, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 239);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(30, 13);
+            this.label37.TabIndex = 7;
+            this.label37.Text = "Date";
             // 
             // label39
             // 
@@ -818,21 +953,22 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(289, 149);
+            this.btnUpdate.Location = new System.Drawing.Point(307, 333);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "SUBMIT";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtRoomId
             // 
+            this.txtRoomId.Enabled = false;
             this.txtRoomId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomId.Location = new System.Drawing.Point(12, 50);
             this.txtRoomId.Multiline = true;
             this.txtRoomId.Name = "txtRoomId";
-            this.txtRoomId.Size = new System.Drawing.Size(352, 32);
+            this.txtRoomId.Size = new System.Drawing.Size(371, 32);
             this.txtRoomId.TabIndex = 4;
             // 
             // txtRoomOwner
@@ -841,7 +977,7 @@
             this.txtRoomOwner.Location = new System.Drawing.Point(12, 99);
             this.txtRoomOwner.Multiline = true;
             this.txtRoomOwner.Name = "txtRoomOwner";
-            this.txtRoomOwner.Size = new System.Drawing.Size(352, 32);
+            this.txtRoomOwner.Size = new System.Drawing.Size(371, 32);
             this.txtRoomOwner.TabIndex = 4;
             // 
             // label40
@@ -856,11 +992,231 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(9, 83);
+            this.label36.Location = new System.Drawing.Point(10, 85);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(49, 13);
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
+            // 
+            // room1
+            // 
+            this.room1.Image = global::Reservation_System.Properties.Resources.doorOccupied;
+            this.room1.Location = new System.Drawing.Point(28, 6);
+            this.room1.Name = "room1";
+            this.room1.Size = new System.Drawing.Size(60, 56);
+            this.room1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room1.TabIndex = 21;
+            this.room1.TabStop = false;
+            this.room1.Click += new System.EventHandler(this.room1_Click);
+            // 
+            // room3
+            // 
+            this.room3.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room3.Location = new System.Drawing.Point(216, 6);
+            this.room3.Name = "room3";
+            this.room3.Size = new System.Drawing.Size(60, 56);
+            this.room3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room3.TabIndex = 22;
+            this.room3.TabStop = false;
+            this.room3.Click += new System.EventHandler(this.room3_Click);
+            // 
+            // room20
+            // 
+            this.room20.Image = global::Reservation_System.Properties.Resources.doorOccupied;
+            this.room20.Location = new System.Drawing.Point(398, 268);
+            this.room20.Name = "room20";
+            this.room20.Size = new System.Drawing.Size(60, 56);
+            this.room20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room20.TabIndex = 40;
+            this.room20.TabStop = false;
+            this.room20.Click += new System.EventHandler(this.room20_Click);
+            // 
+            // room2
+            // 
+            this.room2.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room2.Location = new System.Drawing.Point(123, 6);
+            this.room2.Name = "room2";
+            this.room2.Size = new System.Drawing.Size(60, 56);
+            this.room2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room2.TabIndex = 23;
+            this.room2.TabStop = false;
+            this.room2.Click += new System.EventHandler(this.room2_Click);
+            // 
+            // room19
+            // 
+            this.room19.Image = global::Reservation_System.Properties.Resources.doorOccupied;
+            this.room19.Location = new System.Drawing.Point(306, 268);
+            this.room19.Name = "room19";
+            this.room19.Size = new System.Drawing.Size(60, 56);
+            this.room19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room19.TabIndex = 39;
+            this.room19.TabStop = false;
+            this.room19.Click += new System.EventHandler(this.room19_Click);
+            // 
+            // room4
+            // 
+            this.room4.Image = global::Reservation_System.Properties.Resources.doorOccupied;
+            this.room4.Location = new System.Drawing.Point(306, 6);
+            this.room4.Name = "room4";
+            this.room4.Size = new System.Drawing.Size(60, 56);
+            this.room4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room4.TabIndex = 24;
+            this.room4.TabStop = false;
+            this.room4.Click += new System.EventHandler(this.room4_Click);
+            // 
+            // room18
+            // 
+            this.room18.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room18.Location = new System.Drawing.Point(216, 268);
+            this.room18.Name = "room18";
+            this.room18.Size = new System.Drawing.Size(60, 56);
+            this.room18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room18.TabIndex = 38;
+            this.room18.TabStop = false;
+            this.room18.Click += new System.EventHandler(this.room18_Click);
+            // 
+            // room5
+            // 
+            this.room5.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room5.Location = new System.Drawing.Point(398, 6);
+            this.room5.Name = "room5";
+            this.room5.Size = new System.Drawing.Size(60, 56);
+            this.room5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room5.TabIndex = 25;
+            this.room5.TabStop = false;
+            this.room5.Click += new System.EventHandler(this.room5_Click);
+            // 
+            // room17
+            // 
+            this.room17.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room17.Location = new System.Drawing.Point(123, 268);
+            this.room17.Name = "room17";
+            this.room17.Size = new System.Drawing.Size(60, 56);
+            this.room17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room17.TabIndex = 37;
+            this.room17.TabStop = false;
+            this.room17.Click += new System.EventHandler(this.room17_Click);
+            // 
+            // room6
+            // 
+            this.room6.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room6.Location = new System.Drawing.Point(28, 94);
+            this.room6.Name = "room6";
+            this.room6.Size = new System.Drawing.Size(60, 56);
+            this.room6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room6.TabIndex = 26;
+            this.room6.TabStop = false;
+            this.room6.Click += new System.EventHandler(this.room6_Click);
+            // 
+            // room16
+            // 
+            this.room16.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room16.Location = new System.Drawing.Point(28, 268);
+            this.room16.Name = "room16";
+            this.room16.Size = new System.Drawing.Size(60, 56);
+            this.room16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room16.TabIndex = 36;
+            this.room16.TabStop = false;
+            this.room16.Click += new System.EventHandler(this.room16_Click);
+            // 
+            // room7
+            // 
+            this.room7.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room7.Location = new System.Drawing.Point(123, 94);
+            this.room7.Name = "room7";
+            this.room7.Size = new System.Drawing.Size(60, 56);
+            this.room7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room7.TabIndex = 27;
+            this.room7.TabStop = false;
+            this.room7.Click += new System.EventHandler(this.room7_Click);
+            // 
+            // room15
+            // 
+            this.room15.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room15.Location = new System.Drawing.Point(398, 181);
+            this.room15.Name = "room15";
+            this.room15.Size = new System.Drawing.Size(60, 56);
+            this.room15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room15.TabIndex = 35;
+            this.room15.TabStop = false;
+            this.room15.Click += new System.EventHandler(this.room15_Click);
+            // 
+            // room8
+            // 
+            this.room8.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room8.Location = new System.Drawing.Point(216, 94);
+            this.room8.Name = "room8";
+            this.room8.Size = new System.Drawing.Size(60, 56);
+            this.room8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room8.TabIndex = 28;
+            this.room8.TabStop = false;
+            this.room8.Click += new System.EventHandler(this.room8_Click);
+            // 
+            // room14
+            // 
+            this.room14.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room14.Location = new System.Drawing.Point(306, 181);
+            this.room14.Name = "room14";
+            this.room14.Size = new System.Drawing.Size(60, 56);
+            this.room14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room14.TabIndex = 34;
+            this.room14.TabStop = false;
+            this.room14.Click += new System.EventHandler(this.room14_Click);
+            // 
+            // room9
+            // 
+            this.room9.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room9.Location = new System.Drawing.Point(306, 94);
+            this.room9.Name = "room9";
+            this.room9.Size = new System.Drawing.Size(60, 56);
+            this.room9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room9.TabIndex = 29;
+            this.room9.TabStop = false;
+            this.room9.Click += new System.EventHandler(this.room9_Click);
+            // 
+            // room13
+            // 
+            this.room13.Image = global::Reservation_System.Properties.Resources.doorOccupied;
+            this.room13.Location = new System.Drawing.Point(216, 181);
+            this.room13.Name = "room13";
+            this.room13.Size = new System.Drawing.Size(60, 56);
+            this.room13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room13.TabIndex = 33;
+            this.room13.TabStop = false;
+            this.room13.Click += new System.EventHandler(this.room13_Click);
+            // 
+            // room10
+            // 
+            this.room10.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room10.Location = new System.Drawing.Point(398, 94);
+            this.room10.Name = "room10";
+            this.room10.Size = new System.Drawing.Size(60, 56);
+            this.room10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room10.TabIndex = 30;
+            this.room10.TabStop = false;
+            this.room10.Click += new System.EventHandler(this.room10_Click);
+            // 
+            // room12
+            // 
+            this.room12.Image = global::Reservation_System.Properties.Resources.doorPending;
+            this.room12.Location = new System.Drawing.Point(123, 181);
+            this.room12.Name = "room12";
+            this.room12.Size = new System.Drawing.Size(60, 56);
+            this.room12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room12.TabIndex = 32;
+            this.room12.TabStop = false;
+            this.room12.Click += new System.EventHandler(this.room12_Click);
+            // 
+            // room11
+            // 
+            this.room11.Image = global::Reservation_System.Properties.Resources.doorAvailable;
+            this.room11.Location = new System.Drawing.Point(28, 181);
+            this.room11.Name = "room11";
+            this.room11.Size = new System.Drawing.Size(60, 56);
+            this.room11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.room11.TabIndex = 31;
+            this.room11.TabStop = false;
+            this.room11.Click += new System.EventHandler(this.room11_Click);
             // 
             // Main
             // 
@@ -868,8 +1224,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 450);
             this.Controls.Add(this.groupBoxClient);
-            this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.groupBoxMenu);
+            this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.RoomTabTool);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Main";
@@ -878,6 +1234,14 @@
             this.RoomTabTool.ResumeLayout(false);
             this.RoomTab.ResumeLayout(false);
             this.RoomTab.PerformLayout();
+            this.ClientTab.ResumeLayout(false);
+            this.ClientTab.PerformLayout();
+            this.groupBoxLogin.ResumeLayout(false);
+            this.groupBoxLogin.PerformLayout();
+            this.groupBoxMenu.ResumeLayout(false);
+            this.groupBoxMenu.PerformLayout();
+            this.groupBoxClient.ResumeLayout(false);
+            this.groupBoxClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room20)).EndInit();
@@ -898,12 +1262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).EndInit();
-            this.ClientTab.ResumeLayout(false);
-            this.ClientTab.PerformLayout();
-            this.groupBoxLogin.ResumeLayout(false);
-            this.groupBoxLogin.PerformLayout();
-            this.groupBoxClient.ResumeLayout(false);
-            this.groupBoxClient.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -980,6 +1338,25 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtRoomId;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label46;
     }
 }
 

@@ -9,8 +9,11 @@ namespace Reservation_System
 {
     class Room
     {
-        public void getRoomState(int roomid) {
-            
+        public System.Data.DataTable getRoomState() {
+            System.Data.DataTable dt;
+            dbClass room = new dbClass();
+            dt = room.dbSelect("SELECT * FROM room");
+            return dt;
         }
         public void setRoomState(int roomid) { 
             

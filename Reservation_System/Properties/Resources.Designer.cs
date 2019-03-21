@@ -60,23 +60,23 @@ namespace Reservation_System.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap doorBlack {
+        internal static System.Drawing.Bitmap doorAvailable {
             get {
-                object obj = ResourceManager.GetObject("doorBlack", resourceCulture);
+                object obj = ResourceManager.GetObject("doorAvailable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap doorCyan {
+        internal static System.Drawing.Bitmap doorOccupied {
             get {
-                object obj = ResourceManager.GetObject("doorCyan", resourceCulture);
+                object obj = ResourceManager.GetObject("doorOccupied", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap doorRed {
+        internal static System.Drawing.Bitmap doorPending {
             get {
-                object obj = ResourceManager.GetObject("doorRed", resourceCulture);
+                object obj = ResourceManager.GetObject("doorPending", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
