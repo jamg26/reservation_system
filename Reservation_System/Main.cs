@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Net.Mail;
 
 namespace Reservation_System {
     public partial class Main : Form {
@@ -129,8 +130,15 @@ namespace Reservation_System {
                     showHide("menu", true);
                     labelUser.Text = dt.Rows[0][5].ToString();
                     labelUserType.Text = dt.Rows[0][3].ToString();
+                    linkEditUsers.Visible = true;
                     MessageBox.Show("Welcome admin!");
                 } else {
+                    showHide("login", false);
+                    showHide("room", true);
+                    showHide("menu", true);
+                    labelUser.Text = dt.Rows[0][5].ToString();
+                    labelUserType.Text = dt.Rows[0][3].ToString();
+                    linkEditUsers.Visible = false;
                     MessageBox.Show("Welcome!");
                 }
             } else {
@@ -164,6 +172,7 @@ namespace Reservation_System {
                 showHide("menu", true);
                 setRoomState();
                 getRoomsCount();
+                sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, cmbMonth.Text + ", " + cmbDay.Text + " Time: " + cmbHour.Text + ":" + cmbMinutes.Text);
                 RoomTabTool.Hide();
                 RoomTabTool.Show();
                 MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
@@ -393,6 +402,32 @@ namespace Reservation_System {
             showHide("client", false);
             txtUsername.Text = "";
             txtPassword.Text = "";
+        }
+
+        private void linkEditUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            UserGridView user = new UserGridView();
+            user.Show();
+        }
+
+        private void sendMail(string fullname, string email, string room, string date) {
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("jammmg26@gmail.com", "12261994");
+
+            MailAddress from = new MailAddress("jammmg26@gmail.com", "Marton Suites Room Reservation");
+            MailAddress to = new MailAddress(email, fullname);
+            MailMessage mm = new MailMessage(from, to);
+            mm.Subject = "Marton Suites Room Reservation";
+            mm.Body = "Hello " + fullname + " we would like to inform you that you have a pending reservation in Marton Suites.\nTo complete the reservation you need to pay the 70% downpayment policy within this day.\nYou can pay through our bank accounts, ATM or in cash.\n\nRESERVATION INFO:\nReservation Room: " + room + "\nReservation Date: " + date + "\n\nPlease bring the reference of your payment in the time of reservation.\n\n\nRegards,\nMarton Suites Management";
+            mm.BodyEncoding = UTF8Encoding.UTF8;
+            mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+            client.Send(mm);
         }
     }
 }
