@@ -1196,7 +1196,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Marton Suites Reservation System";
             this.Load += new System.EventHandler(this.Main_Load);
             this.RoomTabTool.ResumeLayout(false);
             this.RoomTab.ResumeLayout(false);
