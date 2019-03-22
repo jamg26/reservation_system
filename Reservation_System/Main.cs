@@ -67,6 +67,7 @@ namespace Reservation_System {
                 clientFieldState(false);
                 txtStatus.Text = "Occupied";
             }
+            getClientList();
         }
 
         private void setRoomState() {
@@ -100,6 +101,25 @@ namespace Reservation_System {
             labelAvailableRooms.Text = avail.Rows.Count.ToString(); 
         }
 
+        private void getClientList() {
+            try {
+                dbClass db = new dbClass();
+                System.Data.DataTable dt = db.dbSelect("SELECT name, email, phone FROM client");
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Main_Load(object sender, EventArgs e) {
             this.Width = 300;
             showHide("login", true);
@@ -108,6 +128,7 @@ namespace Reservation_System {
             showHide("client", false);
             setRoomState();
             getRoomsCount();
+            getClientList();
         }
 
         private System.Data.DataTable loginQuery(string username, string password) {
@@ -123,7 +144,7 @@ namespace Reservation_System {
         private void btnLogin_Click(object sender, EventArgs e) {
             System.Data.DataTable dt = loginQuery(txtUsername.Text, txtPassword.Text);
             if (dt.Rows.Count > 0) {
-                this.Width = 1030;
+                this.Width = 934;
                 if (dt.Rows[0][3].ToString() == "admin") {
                     showHide("login", false);
                     showHide("room", true);
@@ -166,6 +187,12 @@ namespace Reservation_System {
             if (txtRoomOwner.Text == "" || txtEmail.Text == "" || cmbMonth.Text == "" || cmbDay.Text == "" || cmbHour.Text == "" || cmbMinutes.Text == "") {
                 MessageBox.Show("Fill up all forms!");
             } else {
+                System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
+                if (owner.Rows.Count == 0) {
+                    db.dbInsert("INSERT INTO client (name, email, phone) VALUES('" + txtRoomOwner.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "')");
+                } else {
+                    db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
+                }
                 string date = cmbMonth.Text + " " + cmbDay.Text + " " + cmbHour.Text + " " + cmbMinutes.Text;
                 db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + date + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE id=" + txtRoomId.Text);
                 showHide("client", false);
@@ -428,6 +455,12 @@ namespace Reservation_System {
             mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
             client.Send(mm);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            txtRoomOwner.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtEmail.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtMobile.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
         }
     }
 }

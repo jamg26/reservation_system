@@ -112,6 +112,8 @@
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.tabLogPage = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RoomTabTool.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -139,6 +141,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxClient.SuspendLayout();
+            this.tabLogPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -194,10 +198,11 @@
             // RoomTabTool
             // 
             this.RoomTabTool.Controls.Add(this.RoomTab);
+            this.RoomTabTool.Controls.Add(this.tabLogPage);
             this.RoomTabTool.Location = new System.Drawing.Point(407, 12);
             this.RoomTabTool.Name = "RoomTabTool";
             this.RoomTabTool.SelectedIndex = 0;
-            this.RoomTabTool.Size = new System.Drawing.Size(595, 426);
+            this.RoomTabTool.Size = new System.Drawing.Size(498, 426);
             this.RoomTabTool.TabIndex = 63;
             // 
             // RoomTab
@@ -245,13 +250,14 @@
             this.RoomTab.Location = new System.Drawing.Point(4, 22);
             this.RoomTab.Name = "RoomTab";
             this.RoomTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RoomTab.Size = new System.Drawing.Size(587, 400);
+            this.RoomTab.Size = new System.Drawing.Size(490, 400);
             this.RoomTab.TabIndex = 0;
             this.RoomTab.Text = "Rooms";
             this.RoomTab.UseVisualStyleBackColor = true;
             // 
             // room1
             // 
+            this.room1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room1.Location = new System.Drawing.Point(28, 6);
             this.room1.Name = "room1";
             this.room1.Size = new System.Drawing.Size(60, 56);
@@ -280,6 +286,7 @@
             // 
             // room3
             // 
+            this.room3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room3.Location = new System.Drawing.Point(216, 6);
             this.room3.Name = "room3";
             this.room3.Size = new System.Drawing.Size(60, 56);
@@ -290,6 +297,7 @@
             // 
             // room20
             // 
+            this.room20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room20.Location = new System.Drawing.Point(398, 268);
             this.room20.Name = "room20";
             this.room20.Size = new System.Drawing.Size(60, 56);
@@ -318,6 +326,7 @@
             // 
             // room2
             // 
+            this.room2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room2.Location = new System.Drawing.Point(123, 6);
             this.room2.Name = "room2";
             this.room2.Size = new System.Drawing.Size(60, 56);
@@ -328,6 +337,7 @@
             // 
             // room19
             // 
+            this.room19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room19.Location = new System.Drawing.Point(306, 268);
             this.room19.Name = "room19";
             this.room19.Size = new System.Drawing.Size(60, 56);
@@ -356,6 +366,7 @@
             // 
             // room4
             // 
+            this.room4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room4.Location = new System.Drawing.Point(306, 6);
             this.room4.Name = "room4";
             this.room4.Size = new System.Drawing.Size(60, 56);
@@ -366,6 +377,7 @@
             // 
             // room18
             // 
+            this.room18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room18.Location = new System.Drawing.Point(216, 268);
             this.room18.Name = "room18";
             this.room18.Size = new System.Drawing.Size(60, 56);
@@ -394,6 +406,7 @@
             // 
             // room5
             // 
+            this.room5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room5.Location = new System.Drawing.Point(398, 6);
             this.room5.Name = "room5";
             this.room5.Size = new System.Drawing.Size(60, 56);
@@ -404,6 +417,7 @@
             // 
             // room17
             // 
+            this.room17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room17.Location = new System.Drawing.Point(123, 268);
             this.room17.Name = "room17";
             this.room17.Size = new System.Drawing.Size(60, 56);
@@ -432,6 +446,7 @@
             // 
             // room6
             // 
+            this.room6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room6.Location = new System.Drawing.Point(28, 94);
             this.room6.Name = "room6";
             this.room6.Size = new System.Drawing.Size(60, 56);
@@ -442,6 +457,7 @@
             // 
             // room16
             // 
+            this.room16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room16.Location = new System.Drawing.Point(28, 268);
             this.room16.Name = "room16";
             this.room16.Size = new System.Drawing.Size(60, 56);
@@ -470,6 +486,7 @@
             // 
             // room7
             // 
+            this.room7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room7.Location = new System.Drawing.Point(123, 94);
             this.room7.Name = "room7";
             this.room7.Size = new System.Drawing.Size(60, 56);
@@ -480,6 +497,7 @@
             // 
             // room15
             // 
+            this.room15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room15.Location = new System.Drawing.Point(398, 181);
             this.room15.Name = "room15";
             this.room15.Size = new System.Drawing.Size(60, 56);
@@ -508,6 +526,7 @@
             // 
             // room8
             // 
+            this.room8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room8.Location = new System.Drawing.Point(216, 94);
             this.room8.Name = "room8";
             this.room8.Size = new System.Drawing.Size(60, 56);
@@ -518,6 +537,7 @@
             // 
             // room14
             // 
+            this.room14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room14.Location = new System.Drawing.Point(306, 181);
             this.room14.Name = "room14";
             this.room14.Size = new System.Drawing.Size(60, 56);
@@ -546,6 +566,7 @@
             // 
             // room9
             // 
+            this.room9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room9.Location = new System.Drawing.Point(306, 94);
             this.room9.Name = "room9";
             this.room9.Size = new System.Drawing.Size(60, 56);
@@ -556,6 +577,7 @@
             // 
             // room13
             // 
+            this.room13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room13.Location = new System.Drawing.Point(216, 181);
             this.room13.Name = "room13";
             this.room13.Size = new System.Drawing.Size(60, 56);
@@ -584,6 +606,7 @@
             // 
             // room10
             // 
+            this.room10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room10.Location = new System.Drawing.Point(398, 94);
             this.room10.Name = "room10";
             this.room10.Size = new System.Drawing.Size(60, 56);
@@ -594,6 +617,7 @@
             // 
             // room12
             // 
+            this.room12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room12.Location = new System.Drawing.Point(123, 181);
             this.room12.Name = "room12";
             this.room12.Size = new System.Drawing.Size(60, 56);
@@ -622,6 +646,7 @@
             // 
             // room11
             // 
+            this.room11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.room11.Location = new System.Drawing.Point(28, 181);
             this.room11.Name = "room11";
             this.room11.Size = new System.Drawing.Size(60, 56);
@@ -653,7 +678,6 @@
             this.groupBoxMenu.Size = new System.Drawing.Size(393, 421);
             this.groupBoxMenu.TabIndex = 5;
             this.groupBoxMenu.TabStop = false;
-            this.groupBoxMenu.Text = "Menu";
             // 
             // groupBox2
             // 
@@ -858,6 +882,7 @@
             // 
             // btnAvailable
             // 
+            this.btnAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAvailable.Enabled = false;
             this.btnAvailable.Location = new System.Drawing.Point(12, 333);
             this.btnAvailable.Name = "btnAvailable";
@@ -906,6 +931,7 @@
             // 
             // cmbMinutes
             // 
+            this.cmbMinutes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMinutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMinutes.FormattingEnabled = true;
             this.cmbMinutes.Items.AddRange(new object[] {
@@ -976,6 +1002,7 @@
             // 
             // cmbHour
             // 
+            this.cmbHour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHour.FormattingEnabled = true;
             this.cmbHour.Items.AddRange(new object[] {
@@ -1056,6 +1083,7 @@
             // 
             // cmbDay
             // 
+            this.cmbDay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDay.FormattingEnabled = true;
             this.cmbDay.Items.AddRange(new object[] {
@@ -1097,6 +1125,7 @@
             // 
             // cmbMonth
             // 
+            this.cmbMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonth.FormattingEnabled = true;
             this.cmbMonth.Items.AddRange(new object[] {
@@ -1139,6 +1168,7 @@
             // 
             // btnReserve
             // 
+            this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReserve.Location = new System.Drawing.Point(307, 333);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(75, 23);
@@ -1184,11 +1214,34 @@
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
             // 
+            // tabLogPage
+            // 
+            this.tabLogPage.Controls.Add(this.dataGridView1);
+            this.tabLogPage.Location = new System.Drawing.Point(4, 22);
+            this.tabLogPage.Name = "tabLogPage";
+            this.tabLogPage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLogPage.Size = new System.Drawing.Size(490, 400);
+            this.tabLogPage.TabIndex = 1;
+            this.tabLogPage.Text = "Clients";
+            this.tabLogPage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(477, 386);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 450);
+            this.ClientSize = new System.Drawing.Size(918, 450);
             this.Controls.Add(this.groupBoxClient);
             this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.groupBoxLogin);
@@ -1196,7 +1249,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Marton Suites Reservation System";
+            this.Text = "Marton Suites";
             this.Load += new System.EventHandler(this.Main_Load);
             this.RoomTabTool.ResumeLayout(false);
             this.RoomTab.ResumeLayout(false);
@@ -1230,6 +1283,8 @@
             this.groupBox1.PerformLayout();
             this.groupBoxClient.ResumeLayout(false);
             this.groupBoxClient.PerformLayout();
+            this.tabLogPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1324,6 +1379,8 @@
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.LinkLabel labelLogout;
         private System.Windows.Forms.LinkLabel linkEditUsers;
+        private System.Windows.Forms.TabPage tabLogPage;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
