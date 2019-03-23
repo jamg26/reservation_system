@@ -14,6 +14,7 @@ namespace Reservation_System {
     public partial class Main : Form {
         SqlConnection conn = dbClass.getConnection();
         private System.Data.DataTable clientInfo;
+        private double price = 2000;
         public Main() {
             InitializeComponent();
         }
@@ -37,10 +38,8 @@ namespace Reservation_System {
             txtRoomOwner.Enabled = state;
             txtEmail.Enabled = state;
             txtMobile.Enabled = state;
-            cmbMonth.Enabled = state;
-            cmbDay.Enabled = state;
-            cmbHour.Enabled = state;
-            cmbMinutes.Enabled = state;
+            dateTimeFrom.Enabled = state;
+            noOfDays.Enabled = state;
         }
 
         private void roomStateHandler(int row, System.Windows.Forms.PictureBox room) {
@@ -175,16 +174,12 @@ namespace Reservation_System {
         private void clearFields() {
             txtRoomOwner.Text = "";
             txtEmail.Text = "";
-            cmbMonth.SelectedIndex = -1;
-            cmbDay.SelectedIndex = -1;
-            cmbHour.SelectedIndex = -1;
-            cmbMinutes.SelectedIndex = -1;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             dbClass db = new dbClass();
-            if (txtRoomOwner.Text == "" || txtEmail.Text == "" || cmbMonth.Text == "" || cmbDay.Text == "" || cmbHour.Text == "" || cmbMinutes.Text == "") {
+            if (txtRoomOwner.Text == "" || txtEmail.Text == "") {
                 MessageBox.Show("Fill up all forms!");
             } else {
                 System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
@@ -193,13 +188,12 @@ namespace Reservation_System {
                 } else {
                     db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
                 }
-                string date = cmbMonth.Text + " " + cmbDay.Text + " " + cmbHour.Text + " " + cmbMinutes.Text;
-                db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + date + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE id=" + txtRoomId.Text);
+                db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
                 showHide("client", false);
                 showHide("menu", true);
                 setRoomState();
                 getRoomsCount();
-                sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, cmbMonth.Text + ", " + cmbDay.Text + " Time: " + cmbHour.Text + ":" + cmbMinutes.Text);
+                sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
                 RoomTabTool.Hide();
                 RoomTabTool.Show();
                 MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
@@ -210,17 +204,14 @@ namespace Reservation_System {
         private void fetchClientInfo(int id) {
             dbClass db = new dbClass();
             this.clientInfo = db.dbSelect("SELECT * FROM room WHERE id=" + id);
-            var date = this.clientInfo.Rows[0][4].ToString().Split(' ');
+            dateTimeFrom.Text = this.clientInfo.Rows[0][4].ToString();
             txtRoomOwner.Text = this.clientInfo.Rows[0][2].ToString();
             txtEmail.Text = this.clientInfo.Rows[0][5].ToString();
             txtMobile.Text = this.clientInfo.Rows[0][6].ToString();
-            if (date[0] != "") {
-                cmbMonth.Text = date[0];
-                cmbDay.Text = date[1];
-                cmbHour.Text = date[2];
-                cmbMinutes.Text = date[3];
-            } else {
-                clearFields();
+            try {
+                noOfDays.Value = Convert.ToInt32(this.clientInfo.Rows[0][7]);
+            } catch (InvalidCastException) {
+                noOfDays.Value = 1;
             }
         }
 
@@ -436,7 +427,9 @@ namespace Reservation_System {
             user.Show();
         }
 
-        private void sendMail(string fullname, string email, string room, string date) {
+        private void sendMail(string fullname, string email, string room, string date, decimal days) {
+            this.price = this.price * Convert.ToDouble(days);
+            double total = this.price * 0.70;
             SmtpClient client = new SmtpClient();
             client.Port = 587;
             client.Host = "smtp.gmail.com";
@@ -450,7 +443,7 @@ namespace Reservation_System {
             MailAddress to = new MailAddress(email, fullname);
             MailMessage mm = new MailMessage(from, to);
             mm.Subject = "Marton Suites Room Reservation";
-            mm.Body = "Hello " + fullname + " we would like to inform you that you have a pending reservation in Marton Suites.\nTo complete the reservation you need to pay the 70% downpayment policy within this day.\nYou can pay through our bank accounts, ATM or in cash.\n\nRESERVATION INFO:\nReservation Room: " + room + "\nReservation Date: " + date + "\n\nPlease bring the reference of your payment in the time of reservation.\n\n\nRegards,\nMarton Suites Management";
+            mm.Body = "Hello " + fullname + " we would like to inform you that you have a pending reservation in Marton Suites.\nTo complete the reservation you need to pay PHP " + total + " OR 70% for downpayment policy within this day.\nYou can pay through our bank accounts, ATM or in cash.\n\nRESERVATION INFO:\nReservation Room: " + room + "\nReservation Date: " + date + "\nNumber of days: " + days + "\n\nPlease bring the reference of your payment in the time of reservation.\n\n\nRegards,\nMarton Suites Management";
             mm.BodyEncoding = UTF8Encoding.UTF8;
             mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
@@ -461,6 +454,10 @@ namespace Reservation_System {
             txtRoomOwner.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtEmail.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtMobile.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e) {
+            MessageBox.Show(dateTimeFrom.Text);
         }
     }
 }

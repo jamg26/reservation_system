@@ -71,6 +71,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.room11 = new System.Windows.Forms.PictureBox();
+            this.tabLogPage = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.groupBoxMenu = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -94,17 +96,11 @@
             this.btnAvailable = new System.Windows.Forms.Button();
             this.txtMobile = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.cmbMinutes = new System.Windows.Forms.ComboBox();
-            this.cmbHour = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.cmbDay = new System.Windows.Forms.ComboBox();
-            this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnReserve = new System.Windows.Forms.Button();
@@ -112,8 +108,10 @@
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.tabLogPage = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.noOfDays = new System.Windows.Forms.NumericUpDown();
             this.RoomTabTool.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -136,13 +134,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).BeginInit();
+            this.tabLogPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxClient.SuspendLayout();
-            this.tabLogPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfDays)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -187,6 +186,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLogin.Location = new System.Drawing.Point(10, 188);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(93, 34);
@@ -655,14 +655,39 @@
             this.room11.TabStop = false;
             this.room11.Click += new System.EventHandler(this.room11_Click);
             // 
+            // tabLogPage
+            // 
+            this.tabLogPage.Controls.Add(this.dataGridView1);
+            this.tabLogPage.Location = new System.Drawing.Point(4, 22);
+            this.tabLogPage.Name = "tabLogPage";
+            this.tabLogPage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLogPage.Size = new System.Drawing.Size(490, 400);
+            this.tabLogPage.TabIndex = 1;
+            this.tabLogPage.Text = "Clients";
+            this.tabLogPage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(477, 386);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
             // groupBoxLogin
             // 
+            this.groupBoxLogin.BackColor = System.Drawing.Color.SkyBlue;
             this.groupBoxLogin.Controls.Add(this.label1);
             this.groupBoxLogin.Controls.Add(this.txtPassword);
             this.groupBoxLogin.Controls.Add(this.btnLogin);
             this.groupBoxLogin.Controls.Add(this.label2);
             this.groupBoxLogin.Controls.Add(this.txtUsername);
             this.groupBoxLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxLogin.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoxLogin.Location = new System.Drawing.Point(0, 0);
             this.groupBoxLogin.Name = "groupBoxLogin";
             this.groupBoxLogin.Size = new System.Drawing.Size(333, 427);
@@ -823,23 +848,21 @@
             // 
             // groupBoxClient
             // 
+            this.groupBoxClient.Controls.Add(this.noOfDays);
+            this.groupBoxClient.Controls.Add(this.label25);
+            this.groupBoxClient.Controls.Add(this.label26);
+            this.groupBoxClient.Controls.Add(this.dateTimeFrom);
             this.groupBoxClient.Controls.Add(this.label52);
             this.groupBoxClient.Controls.Add(this.txtStatus);
             this.groupBoxClient.Controls.Add(this.label50);
             this.groupBoxClient.Controls.Add(this.btnAvailable);
             this.groupBoxClient.Controls.Add(this.txtMobile);
             this.groupBoxClient.Controls.Add(this.label47);
-            this.groupBoxClient.Controls.Add(this.label44);
-            this.groupBoxClient.Controls.Add(this.label45);
-            this.groupBoxClient.Controls.Add(this.cmbMinutes);
-            this.groupBoxClient.Controls.Add(this.cmbHour);
             this.groupBoxClient.Controls.Add(this.label43);
             this.groupBoxClient.Controls.Add(this.label42);
             this.groupBoxClient.Controls.Add(this.label41);
             this.groupBoxClient.Controls.Add(this.txtEmail);
             this.groupBoxClient.Controls.Add(this.label38);
-            this.groupBoxClient.Controls.Add(this.cmbDay);
-            this.groupBoxClient.Controls.Add(this.cmbMonth);
             this.groupBoxClient.Controls.Add(this.label37);
             this.groupBoxClient.Controls.Add(this.label39);
             this.groupBoxClient.Controls.Add(this.btnReserve);
@@ -856,7 +879,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(12, 317);
+            this.label52.Location = new System.Drawing.Point(10, 319);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(46, 13);
             this.label52.TabIndex = 28;
@@ -884,7 +907,7 @@
             // 
             this.btnAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAvailable.Enabled = false;
-            this.btnAvailable.Location = new System.Drawing.Point(12, 333);
+            this.btnAvailable.Location = new System.Drawing.Point(10, 335);
             this.btnAvailable.Name = "btnAvailable";
             this.btnAvailable.Size = new System.Drawing.Size(75, 23);
             this.btnAvailable.TabIndex = 9;
@@ -909,129 +932,6 @@
             this.label47.Size = new System.Drawing.Size(122, 13);
             this.label47.TabIndex = 22;
             this.label47.Text = "Mobile (09XXXXXXXXX)";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.ForeColor = System.Drawing.Color.Red;
-            this.label44.Location = new System.Drawing.Point(105, 276);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(11, 13);
-            this.label44.TabIndex = 21;
-            this.label44.Text = "*";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(9, 276);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(92, 13);
-            this.label45.TabIndex = 20;
-            this.label45.Text = "Time (24hr format)";
-            // 
-            // cmbMinutes
-            // 
-            this.cmbMinutes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbMinutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMinutes.FormattingEnabled = true;
-            this.cmbMinutes.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59"});
-            this.cmbMinutes.Location = new System.Drawing.Point(88, 290);
-            this.cmbMinutes.Name = "cmbMinutes";
-            this.cmbMinutes.Size = new System.Drawing.Size(74, 21);
-            this.cmbMinutes.TabIndex = 7;
-            // 
-            // cmbHour
-            // 
-            this.cmbHour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHour.FormattingEnabled = true;
-            this.cmbHour.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21"});
-            this.cmbHour.Location = new System.Drawing.Point(12, 290);
-            this.cmbHour.Name = "cmbHour";
-            this.cmbHour.Size = new System.Drawing.Size(70, 21);
-            this.cmbHour.TabIndex = 6;
             // 
             // label43
             // 
@@ -1081,71 +981,6 @@
             this.label38.TabIndex = 11;
             this.label38.Text = "Email";
             // 
-            // cmbDay
-            // 
-            this.cmbDay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDay.FormattingEnabled = true;
-            this.cmbDay.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
-            this.cmbDay.Location = new System.Drawing.Point(108, 252);
-            this.cmbDay.Name = "cmbDay";
-            this.cmbDay.Size = new System.Drawing.Size(54, 21);
-            this.cmbDay.TabIndex = 5;
-            // 
-            // cmbMonth
-            // 
-            this.cmbMonth.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.cmbMonth.Location = new System.Drawing.Point(12, 252);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(90, 21);
-            this.cmbMonth.TabIndex = 4;
-            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -1169,7 +1004,7 @@
             // btnReserve
             // 
             this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReserve.Location = new System.Drawing.Point(307, 333);
+            this.btnReserve.Location = new System.Drawing.Point(312, 335);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(75, 23);
             this.btnReserve.TabIndex = 8;
@@ -1214,28 +1049,44 @@
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
             // 
-            // tabLogPage
+            // dateTimeFrom
             // 
-            this.tabLogPage.Controls.Add(this.dataGridView1);
-            this.tabLogPage.Location = new System.Drawing.Point(4, 22);
-            this.tabLogPage.Name = "tabLogPage";
-            this.tabLogPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogPage.Size = new System.Drawing.Size(490, 400);
-            this.tabLogPage.TabIndex = 1;
-            this.tabLogPage.Text = "Clients";
-            this.tabLogPage.UseVisualStyleBackColor = true;
+            this.dateTimeFrom.Location = new System.Drawing.Point(12, 255);
+            this.dateTimeFrom.MinDate = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
+            this.dateTimeFrom.Name = "dateTimeFrom";
+            this.dateTimeFrom.Size = new System.Drawing.Size(145, 20);
+            this.dateTimeFrom.TabIndex = 29;
             // 
-            // dataGridView1
+            // label25
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(477, 386);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(74, 281);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(11, 13);
+            this.label25.TabIndex = 32;
+            this.label25.Text = "*";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 281);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(63, 13);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "No. of Days";
+            // 
+            // noOfDays
+            // 
+            this.noOfDays.Location = new System.Drawing.Point(12, 297);
+            this.noOfDays.Name = "noOfDays";
+            this.noOfDays.Size = new System.Drawing.Size(38, 20);
+            this.noOfDays.TabIndex = 33;
+            this.noOfDays.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Main
             // 
@@ -1243,12 +1094,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 450);
             this.Controls.Add(this.groupBoxClient);
-            this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.groupBoxLogin);
+            this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.RoomTabTool);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marton Suites";
             this.Load += new System.EventHandler(this.Main_Load);
             this.RoomTabTool.ResumeLayout(false);
@@ -1274,6 +1124,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).EndInit();
+            this.tabLogPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxLogin.ResumeLayout(false);
             this.groupBoxLogin.PerformLayout();
             this.groupBoxMenu.ResumeLayout(false);
@@ -1283,8 +1135,7 @@
             this.groupBox1.PerformLayout();
             this.groupBoxClient.ResumeLayout(false);
             this.groupBoxClient.PerformLayout();
-            this.tabLogPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfDays)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1348,17 +1199,11 @@
         private System.Windows.Forms.TextBox txtRoomId;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.ComboBox cmbDay;
-        private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.ComboBox cmbMinutes;
-        private System.Windows.Forms.ComboBox cmbHour;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label49;
@@ -1381,6 +1226,10 @@
         private System.Windows.Forms.LinkLabel linkEditUsers;
         private System.Windows.Forms.TabPage tabLogPage;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DateTimePicker dateTimeFrom;
+        private System.Windows.Forms.NumericUpDown noOfDays;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
     }
 }
 
