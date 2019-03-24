@@ -24,7 +24,7 @@ namespace Reservation_System {
                 groupBoxLogin.Visible = state;
             }
             if (panel == "room") {
-                RoomTabTool.Visible = state;
+                RecentCheckOutTab.Visible = state;
             }
             if (panel == "menu") {
                 groupBoxMenu.Visible = state;
@@ -46,9 +46,11 @@ namespace Reservation_System {
             Room roomm = new Room();
             System.Data.DataTable states = roomm.getRoomState();
             if (states.Rows[row][3].ToString() == "available") {
-                room.Image = Properties.Resources.doorAvailable;
+                room.Image = Properties.Resources.dooropen;
                 btnReserve.Enabled = true;
                 btnAvailable.Enabled = false;
+                btnReserve.Visible = true;
+                btnAvailable.Visible = false;
                 txtStatus.Text = "Available";
                 clientFieldState(true);
             } 
@@ -56,6 +58,8 @@ namespace Reservation_System {
                 room.Image = Properties.Resources.doorPending;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
+                btnReserve.Visible = false;
+                btnAvailable.Visible = true;
                 clientFieldState(false);
                 txtStatus.Text = "Reserved";
             }
@@ -63,10 +67,14 @@ namespace Reservation_System {
                 room.Image = Properties.Resources.doorOccupied;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
+                btnReserve.Visible = false;
+                btnAvailable.Visible = true;
                 clientFieldState(false);
                 txtStatus.Text = "Occupied";
             }
             getClientList();
+            getReservedLog();
+            getCheckoutLog();
         }
 
         private void setRoomState() {
@@ -119,6 +127,55 @@ namespace Reservation_System {
             }
         }
 
+        private void getReservedLog() {
+            try {
+                dbClass db = new dbClass();
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate, owner, email, phone, days FROM reservelog");
+                dataGridView2.DataSource = dt;
+                dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView2.Columns[0].ReadOnly = true;
+                dataGridView2.Columns[1].ReadOnly = true;
+                dataGridView2.Columns[2].ReadOnly = true;
+                dataGridView2.Columns[3].ReadOnly = true;
+                dataGridView2.Columns[4].ReadOnly = true;
+                dataGridView2.Columns[5].ReadOnly = true;
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void getCheckoutLog() {
+            try {
+                dbClass db = new dbClass();
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate, owner, email, phone, days FROM reservelog WHERE state='checkout'");
+                dataGridView3.DataSource = dt;
+                dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView3.Columns[0].ReadOnly = true;
+                dataGridView3.Columns[1].ReadOnly = true;
+                dataGridView3.Columns[2].ReadOnly = true;
+                dataGridView3.Columns[3].ReadOnly = true;
+                dataGridView3.Columns[4].ReadOnly = true;
+                dataGridView3.Columns[5].ReadOnly = true;
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Main_Load(object sender, EventArgs e) {
             this.Width = 300;
             showHide("login", true);
@@ -128,6 +185,8 @@ namespace Reservation_System {
             setRoomState();
             getRoomsCount();
             getClientList();
+            getReservedLog();
+            getCheckoutLog();
         }
 
         private System.Data.DataTable loginQuery(string username, string password) {
@@ -189,13 +248,14 @@ namespace Reservation_System {
                     db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
                 }
                 db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
+                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + dateTimeFrom.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "')");
                 showHide("client", false);
                 showHide("menu", true);
                 setRoomState();
                 getRoomsCount();
                 sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
-                RoomTabTool.Hide();
-                RoomTabTool.Show();
+                RecentCheckOutTab.Hide();
+                RecentCheckOutTab.Show();
                 MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
                 clearFields();
             }
@@ -396,16 +456,17 @@ namespace Reservation_System {
         }
 
         private void btnAvailable_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Are you sure to clear the room?", "Make room available", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Checkout", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK)) {
                 dbClass db = new dbClass();
-                db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='' WHERE id=" + txtRoomId.Text);
+                db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1 WHERE id=" + txtRoomId.Text);
+                db.dbUpdate("UPDATE reservelog SET state='checkout' WHERE name='Room " + txtRoomId.Text + "'");
                 showHide("menu", true);
                 showHide("client", false);
                 setRoomState();
                 getRoomsCount();
-                RoomTabTool.Hide();
-                RoomTabTool.Show();
+                RecentCheckOutTab.Hide();
+                RecentCheckOutTab.Show();
                 MessageBox.Show("Room " + txtRoomId.Text + " is now available!");
             } else {
 

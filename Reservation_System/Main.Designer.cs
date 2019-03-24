@@ -29,7 +29,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.RoomTabTool = new System.Windows.Forms.TabControl();
+            this.RecentCheckOutTab = new System.Windows.Forms.TabControl();
             this.RoomTab = new System.Windows.Forms.TabPage();
             this.room1 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -90,7 +90,10 @@
             this.label49 = new System.Windows.Forms.Label();
             this.labelTotalRooms = new System.Windows.Forms.Label();
             this.groupBoxClient = new System.Windows.Forms.GroupBox();
-            this.label52 = new System.Windows.Forms.Label();
+            this.noOfDays = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
             this.txtStatus = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.btnAvailable = new System.Windows.Forms.Button();
@@ -108,11 +111,11 @@
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.noOfDays = new System.Windows.Forms.NumericUpDown();
-            this.RoomTabTool.SuspendLayout();
+            this.RecentReservedTab = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room3)).BeginInit();
@@ -142,11 +145,15 @@
             this.groupBox1.SuspendLayout();
             this.groupBoxClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noOfDays)).BeginInit();
+            this.RecentReservedTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(10, 68);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
@@ -155,7 +162,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(10, 138);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -195,15 +202,17 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // RoomTabTool
+            // RecentCheckOutTab
             // 
-            this.RoomTabTool.Controls.Add(this.RoomTab);
-            this.RoomTabTool.Controls.Add(this.tabLogPage);
-            this.RoomTabTool.Location = new System.Drawing.Point(407, 12);
-            this.RoomTabTool.Name = "RoomTabTool";
-            this.RoomTabTool.SelectedIndex = 0;
-            this.RoomTabTool.Size = new System.Drawing.Size(498, 426);
-            this.RoomTabTool.TabIndex = 63;
+            this.RecentCheckOutTab.Controls.Add(this.RoomTab);
+            this.RecentCheckOutTab.Controls.Add(this.tabLogPage);
+            this.RecentCheckOutTab.Controls.Add(this.RecentReservedTab);
+            this.RecentCheckOutTab.Controls.Add(this.tabPage1);
+            this.RecentCheckOutTab.Location = new System.Drawing.Point(407, 12);
+            this.RecentCheckOutTab.Name = "RecentCheckOutTab";
+            this.RecentCheckOutTab.SelectedIndex = 0;
+            this.RecentCheckOutTab.Size = new System.Drawing.Size(498, 426);
+            this.RecentCheckOutTab.TabIndex = 63;
             // 
             // RoomTab
             // 
@@ -663,7 +672,7 @@
             this.tabLogPage.Padding = new System.Windows.Forms.Padding(3);
             this.tabLogPage.Size = new System.Drawing.Size(490, 400);
             this.tabLogPage.TabIndex = 1;
-            this.tabLogPage.Text = "Clients";
+            this.tabLogPage.Text = "Recent Clients";
             this.tabLogPage.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -680,7 +689,7 @@
             // 
             // groupBoxLogin
             // 
-            this.groupBoxLogin.BackColor = System.Drawing.Color.SkyBlue;
+            this.groupBoxLogin.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxLogin.Controls.Add(this.label1);
             this.groupBoxLogin.Controls.Add(this.txtPassword);
             this.groupBoxLogin.Controls.Add(this.btnLogin);
@@ -852,7 +861,6 @@
             this.groupBoxClient.Controls.Add(this.label25);
             this.groupBoxClient.Controls.Add(this.label26);
             this.groupBoxClient.Controls.Add(this.dateTimeFrom);
-            this.groupBoxClient.Controls.Add(this.label52);
             this.groupBoxClient.Controls.Add(this.txtStatus);
             this.groupBoxClient.Controls.Add(this.label50);
             this.groupBoxClient.Controls.Add(this.btnAvailable);
@@ -876,14 +884,44 @@
             this.groupBoxClient.TabIndex = 0;
             this.groupBoxClient.TabStop = false;
             // 
-            // label52
+            // noOfDays
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(10, 319);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(46, 13);
-            this.label52.TabIndex = 28;
-            this.label52.Text = "Mark As";
+            this.noOfDays.Location = new System.Drawing.Point(12, 297);
+            this.noOfDays.Name = "noOfDays";
+            this.noOfDays.Size = new System.Drawing.Size(38, 20);
+            this.noOfDays.TabIndex = 6;
+            this.noOfDays.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(74, 281);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(11, 13);
+            this.label25.TabIndex = 5;
+            this.label25.Text = "*";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 281);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(63, 13);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "No. of Days";
+            // 
+            // dateTimeFrom
+            // 
+            this.dateTimeFrom.Location = new System.Drawing.Point(12, 255);
+            this.dateTimeFrom.MinDate = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
+            this.dateTimeFrom.Name = "dateTimeFrom";
+            this.dateTimeFrom.Size = new System.Drawing.Size(145, 20);
+            this.dateTimeFrom.TabIndex = 5;
             // 
             // txtStatus
             // 
@@ -907,17 +945,17 @@
             // 
             this.btnAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAvailable.Enabled = false;
-            this.btnAvailable.Location = new System.Drawing.Point(10, 335);
+            this.btnAvailable.Location = new System.Drawing.Point(312, 335);
             this.btnAvailable.Name = "btnAvailable";
             this.btnAvailable.Size = new System.Drawing.Size(75, 23);
-            this.btnAvailable.TabIndex = 9;
-            this.btnAvailable.Text = "AVAILABLE";
+            this.btnAvailable.TabIndex = 8;
+            this.btnAvailable.Text = "CHECKOUT";
             this.btnAvailable.UseVisualStyleBackColor = true;
             this.btnAvailable.Click += new System.EventHandler(this.btnAvailable_Click);
             // 
             // txtMobile
             // 
-            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobile.Location = new System.Drawing.Point(12, 202);
             this.txtMobile.Multiline = true;
             this.txtMobile.Name = "txtMobile";
@@ -965,7 +1003,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(13, 150);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
@@ -1015,7 +1053,7 @@
             // txtRoomId
             // 
             this.txtRoomId.Enabled = false;
-            this.txtRoomId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomId.Location = new System.Drawing.Point(12, 50);
             this.txtRoomId.Multiline = true;
             this.txtRoomId.Name = "txtRoomId";
@@ -1024,7 +1062,7 @@
             // 
             // txtRoomOwner
             // 
-            this.txtRoomOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomOwner.Location = new System.Drawing.Point(12, 99);
             this.txtRoomOwner.Multiline = true;
             this.txtRoomOwner.Name = "txtRoomOwner";
@@ -1049,44 +1087,49 @@
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
             // 
-            // dateTimeFrom
+            // RecentReservedTab
             // 
-            this.dateTimeFrom.Location = new System.Drawing.Point(12, 255);
-            this.dateTimeFrom.MinDate = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
-            this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(145, 20);
-            this.dateTimeFrom.TabIndex = 29;
+            this.RecentReservedTab.Controls.Add(this.dataGridView2);
+            this.RecentReservedTab.Location = new System.Drawing.Point(4, 22);
+            this.RecentReservedTab.Name = "RecentReservedTab";
+            this.RecentReservedTab.Padding = new System.Windows.Forms.Padding(3);
+            this.RecentReservedTab.Size = new System.Drawing.Size(490, 400);
+            this.RecentReservedTab.TabIndex = 2;
+            this.RecentReservedTab.Text = "Recent Reservation";
+            this.RecentReservedTab.UseVisualStyleBackColor = true;
             // 
-            // label25
+            // tabPage1
             // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(74, 281);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(11, 13);
-            this.label25.TabIndex = 32;
-            this.label25.Text = "*";
+            this.tabPage1.Controls.Add(this.dataGridView3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(490, 400);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Recent Checkout";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label26
+            // dataGridView2
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(9, 281);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(63, 13);
-            this.label26.TabIndex = 31;
-            this.label26.Text = "No. of Days";
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(480, 390);
+            this.dataGridView2.TabIndex = 0;
             // 
-            // noOfDays
+            // dataGridView3
             // 
-            this.noOfDays.Location = new System.Drawing.Point(12, 297);
-            this.noOfDays.Name = "noOfDays";
-            this.noOfDays.Size = new System.Drawing.Size(38, 20);
-            this.noOfDays.TabIndex = 33;
-            this.noOfDays.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(477, 386);
+            this.dataGridView3.TabIndex = 0;
             // 
             // Main
             // 
@@ -1096,12 +1139,12 @@
             this.Controls.Add(this.groupBoxClient);
             this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.groupBoxMenu);
-            this.Controls.Add(this.RoomTabTool);
+            this.Controls.Add(this.RecentCheckOutTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Marton Suites";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.RoomTabTool.ResumeLayout(false);
+            this.RecentCheckOutTab.ResumeLayout(false);
             this.RoomTab.ResumeLayout(false);
             this.RoomTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).EndInit();
@@ -1136,6 +1179,10 @@
             this.groupBoxClient.ResumeLayout(false);
             this.groupBoxClient.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noOfDays)).EndInit();
+            this.RecentReservedTab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1147,7 +1194,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TabControl RoomTabTool;
+        private System.Windows.Forms.TabControl RecentCheckOutTab;
         private System.Windows.Forms.TabPage RoomTab;
         private System.Windows.Forms.PictureBox room1;
         private System.Windows.Forms.Label label22;
@@ -1212,7 +1259,6 @@
         private System.Windows.Forms.Label txtStatus;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button btnAvailable;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label labelAvailableRooms;
         private System.Windows.Forms.Label labelReservedRooms;
         private System.Windows.Forms.Label labelTotalRooms;
@@ -1230,6 +1276,10 @@
         private System.Windows.Forms.NumericUpDown noOfDays;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TabPage RecentReservedTab;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 

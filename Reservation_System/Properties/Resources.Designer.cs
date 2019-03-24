@@ -74,9 +74,23 @@ namespace Reservation_System.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap dooropen {
+            get {
+                object obj = ResourceManager.GetObject("dooropen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap doorPending {
             get {
                 object obj = ResourceManager.GetObject("doorPending", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap hutt {
+            get {
+                object obj = ResourceManager.GetObject("hutt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

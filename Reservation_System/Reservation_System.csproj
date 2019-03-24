@@ -115,6 +115,15 @@
   <ItemGroup>
     <None Include="Resources\jamg.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dooropen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hutt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hutt1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
