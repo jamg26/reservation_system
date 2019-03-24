@@ -9,14 +9,38 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Net.Mail;
+using System.Threading;
 
 namespace Reservation_System {
     public partial class Main : Form {
         SqlConnection conn = dbClass.getConnection();
         private System.Data.DataTable clientInfo;
         private double price = 2000;
+        
+
         public Main() {
             InitializeComponent();
+        }
+
+        private void Main_Load(object sender, EventArgs e) {
+            Thread a = new Thread(() => SplashScreen());
+            a.Start();
+            this.Width = 300;
+            showHide("login", true);
+            showHide("room", false);
+            showHide("menu", false);
+            showHide("client", false);
+            setRoomState();
+            getRoomsCount();
+            getClientList();
+            getReservedLog();
+            getCheckoutLog();
+            a.Abort();
+            getLoginLog();
+        }
+
+        public void SplashScreen() {
+            Application.Run(new LoadingScreen());
         }
 
         private void showHide(string panel, bool state) {
@@ -75,6 +99,7 @@ namespace Reservation_System {
             getClientList();
             getReservedLog();
             getCheckoutLog();
+            getLoginLog();
         }
 
         private void setRoomState() {
@@ -176,17 +201,22 @@ namespace Reservation_System {
             }
         }
 
-        private void Main_Load(object sender, EventArgs e) {
-            this.Width = 300;
-            showHide("login", true);
-            showHide("room", false);
-            showHide("menu", false);
-            showHide("client", false);
-            setRoomState();
-            getRoomsCount();
-            getClientList();
-            getReservedLog();
-            getCheckoutLog();
+        private void getLoginLog() {
+            try {
+                dbClass db = new dbClass();
+                System.Data.DataTable dt = db.dbSelect("SELECT email, date, usertype FROM loginlog");
+                dataGridView4.DataSource = dt;
+                dataGridView4.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView4.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView4.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView4.Columns[0].ReadOnly = true;
+                dataGridView4.Columns[1].ReadOnly = true;
+                dataGridView4.Columns[2].ReadOnly = true;
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private System.Data.DataTable loginQuery(string username, string password) {
@@ -199,11 +229,18 @@ namespace Reservation_System {
             return dt;
         }
 
+        private string getDateTime() {
+            DateTime aDate = DateTime.Now;
+            return aDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
+        }
+
         private void btnLogin_Click(object sender, EventArgs e) {
             System.Data.DataTable dt = loginQuery(txtUsername.Text, txtPassword.Text);
+            dbClass db = new dbClass();
             if (dt.Rows.Count > 0) {
                 this.Width = 934;
                 if (dt.Rows[0][3].ToString() == "admin") {
+                    db.dbInsert("INSERT INTO loginlog (email, date, usertype) VALUES('" + txtUsername.Text + "', '" + getDateTime() + "', 'admin')");
                     showHide("login", false);
                     showHide("room", true);
                     showHide("menu", true);
@@ -212,6 +249,7 @@ namespace Reservation_System {
                     linkEditUsers.Visible = true;
                     MessageBox.Show("Welcome admin!");
                 } else {
+                    db.dbInsert("INSERT INTO loginlog (email, date, usertype) VALUES('" + txtUsername.Text + "', '" + getDateTime() + "', 'staff')");
                     showHide("login", false);
                     showHide("room", true);
                     showHide("menu", true);
