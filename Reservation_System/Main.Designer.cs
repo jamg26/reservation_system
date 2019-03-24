@@ -1165,6 +1165,7 @@
             // 
             // Main
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 450);
@@ -1174,6 +1175,7 @@
             this.Controls.Add(this.RecentCheckOutTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marton Suites";
             this.Load += new System.EventHandler(this.Main_Load);
             this.RecentCheckOutTab.ResumeLayout(false);

@@ -9,39 +9,31 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Net.Mail;
-using System.Threading;
 
 namespace Reservation_System {
     public partial class Main : Form {
         SqlConnection conn = dbClass.getConnection();
         private System.Data.DataTable clientInfo;
         private double price = 2000;
-        
 
         public Main() {
             InitializeComponent();
         }
 
         private void Main_Load(object sender, EventArgs e) {
-            Thread a = new Thread(() => SplashScreen());
-            a.Start();
             this.Width = 300;
-            showHide("login", true);
-            showHide("room", false);
-            showHide("menu", false);
-            showHide("client", false);
             setRoomState();
             getRoomsCount();
             getClientList();
             getReservedLog();
             getCheckoutLog();
-            a.Abort();
             getLoginLog();
+            showHide("login", true);
+            showHide("room", false);
+            showHide("menu", false);
+            showHide("client", false);
         }
 
-        public void SplashScreen() {
-            Application.Run(new LoadingScreen());
-        }
 
         private void showHide(string panel, bool state) {
             if (panel == "login") {
@@ -247,7 +239,6 @@ namespace Reservation_System {
                     labelUser.Text = dt.Rows[0][5].ToString();
                     labelUserType.Text = dt.Rows[0][3].ToString();
                     linkEditUsers.Visible = true;
-                    MessageBox.Show("Welcome admin!");
                 } else {
                     db.dbInsert("INSERT INTO loginlog (email, date, usertype) VALUES('" + txtUsername.Text + "', '" + getDateTime() + "', 'staff')");
                     showHide("login", false);
@@ -256,7 +247,6 @@ namespace Reservation_System {
                     labelUser.Text = dt.Rows[0][5].ToString();
                     labelUserType.Text = dt.Rows[0][3].ToString();
                     linkEditUsers.Visible = false;
-                    MessageBox.Show("Welcome!");
                 }
             } else {
                 MessageBox.Show("Incorrect username/password!");
