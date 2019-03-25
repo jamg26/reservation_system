@@ -32,6 +32,7 @@ namespace Reservation_System {
             showHide("room", false);
             showHide("menu", false);
             showHide("client", false);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
 
@@ -278,7 +279,7 @@ namespace Reservation_System {
                     db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
                 }
                 db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
-                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + dateTimeFrom.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "')");
+                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "')");
                 showHide("client", false);
                 showHide("menu", true);
                 setRoomState();
