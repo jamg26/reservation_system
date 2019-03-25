@@ -147,7 +147,7 @@ namespace Reservation_System {
         private void getReservedLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate, owner, email, phone, days FROM reservelog");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days FROM reservelog");
                 dataGridView2.DataSource = dt;
                 dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -172,7 +172,7 @@ namespace Reservation_System {
         private void getCheckoutLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate, owner, email, phone, days FROM reservelog WHERE state='checkout'");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days FROM reservelog WHERE state='checkout'");
                 dataGridView3.DataSource = dt;
                 dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
