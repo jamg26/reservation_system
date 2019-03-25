@@ -198,6 +198,7 @@ namespace Reservation_System {
                 dbClass db = new dbClass();
                 System.Data.DataTable dt = db.dbSelect("SELECT email, date, usertype FROM loginlog");
                 dataGridView4.DataSource = dt;
+
                 dataGridView4.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView4.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView4.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -248,6 +249,7 @@ namespace Reservation_System {
                     labelUserType.Text = dt.Rows[0][3].ToString();
                     linkEditUsers.Visible = false;
                 }
+                getLoginLog();
             } else {
                 MessageBox.Show("Incorrect username/password!");
             }
