@@ -551,6 +551,7 @@ namespace Reservation_System {
             mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
             client.Send(mm);
+            this.price = 2000;
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
