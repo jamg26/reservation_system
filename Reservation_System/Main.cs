@@ -68,6 +68,8 @@ namespace Reservation_System {
                 btnAvailable.Enabled = false;
                 btnReserve.Visible = true;
                 btnAvailable.Visible = false;
+                labelTotal.Visible = true;
+                txtTotal.Visible = true;
                 txtStatus.Text = "Available";
                 clientFieldState(true);
             } 
@@ -148,14 +150,15 @@ namespace Reservation_System {
         private void getReservedLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days FROM reservelog");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance FROM reservelog");
                 dataGridView2.DataSource = dt;
                 dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
                 dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView2.Columns[0].ReadOnly = true;
@@ -164,6 +167,7 @@ namespace Reservation_System {
                 dataGridView2.Columns[3].ReadOnly = true;
                 dataGridView2.Columns[4].ReadOnly = true;
                 dataGridView2.Columns[5].ReadOnly = true;
+                dataGridView2.Columns[6].ReadOnly = true;
 
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -173,14 +177,16 @@ namespace Reservation_System {
         private void getCheckoutLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days FROM reservelog WHERE state='checkout'");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance FROM reservelog WHERE state='checkout'");
                 dataGridView3.DataSource = dt;
                 dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridView3.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView3.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //dataGridView3.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView3.Columns[0].ReadOnly = true;
@@ -189,6 +195,7 @@ namespace Reservation_System {
                 dataGridView3.Columns[3].ReadOnly = true;
                 dataGridView3.Columns[4].ReadOnly = true;
                 dataGridView3.Columns[5].ReadOnly = true;
+                dataGridView3.Columns[6].ReadOnly = true;
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -278,12 +285,15 @@ namespace Reservation_System {
                 } else {
                     db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
                 }
+                decimal percent = (decimal)0.70;
+                double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
                 db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
-                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "')");
+                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "')");
                 showHide("client", false);
                 showHide("menu", true);
                 setRoomState();
                 getRoomsCount();
+                getCheckoutLog();
                 sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
                 RecentCheckOutTab.Hide();
                 RecentCheckOutTab.Show();
@@ -496,6 +506,7 @@ namespace Reservation_System {
                 showHide("client", false);
                 setRoomState();
                 getRoomsCount();
+                getCheckoutLog();
                 RecentCheckOutTab.Hide();
                 RecentCheckOutTab.Show();
                 MessageBox.Show("Room " + txtRoomId.Text + " is now available!");
@@ -550,6 +561,10 @@ namespace Reservation_System {
 
         private void btnTest_Click(object sender, EventArgs e) {
             MessageBox.Show(dateTimeFrom.Text);
+        }
+
+        private void noOfDays_ValueChanged(object sender, EventArgs e) {
+            txtTotal.Text = (noOfDays.Value * 2000).ToString() ;
         }
     }
 }

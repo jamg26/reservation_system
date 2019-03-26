@@ -118,6 +118,8 @@
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -937,6 +939,8 @@
             // 
             // groupBoxClient
             // 
+            this.groupBoxClient.Controls.Add(this.txtTotal);
+            this.groupBoxClient.Controls.Add(this.labelTotal);
             this.groupBoxClient.Controls.Add(this.noOfDays);
             this.groupBoxClient.Controls.Add(this.label25);
             this.groupBoxClient.Controls.Add(this.label26);
@@ -975,6 +979,7 @@
             0,
             0,
             0});
+            this.noOfDays.ValueChanged += new System.EventHandler(this.noOfDays_ValueChanged);
             // 
             // label25
             // 
@@ -1163,6 +1168,26 @@
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
             // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(309, 319);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(34, 13);
+            this.labelTotal.TabIndex = 32;
+            this.labelTotal.Text = "Total:";
+            this.labelTotal.Visible = false;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.AutoSize = true;
+            this.txtTotal.Location = new System.Drawing.Point(343, 319);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(10, 13);
+            this.txtTotal.TabIndex = 33;
+            this.txtTotal.Text = "-";
+            this.txtTotal.Visible = false;
+            // 
             // Main
             // 
             this.AcceptButton = this.btnLogin;
@@ -1321,6 +1346,8 @@
         private System.Windows.Forms.GroupBox grpLog;
         private System.Windows.Forms.TabPage RecentLoginTab;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label txtTotal;
+        private System.Windows.Forms.Label labelTotal;
     }
 }
 
