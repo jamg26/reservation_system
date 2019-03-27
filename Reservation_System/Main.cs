@@ -22,6 +22,7 @@ namespace Reservation_System {
 
         private void Main_Load(object sender, EventArgs e) {
             this.Width = 300;
+            this.ActiveControl = btnLogin;
             setRoomState();
             getRoomsCount();
             getClientList();
@@ -38,16 +39,16 @@ namespace Reservation_System {
 
         private void showHide(string panel, bool state) {
             if (panel == "login") {
-                groupBoxLogin.Visible = state;
+                panelLogin.Visible = state;
             }
             if (panel == "room") {
                 RecentCheckOutTab.Visible = state;
             }
             if (panel == "menu") {
-                groupBoxMenu.Visible = state;
+                panelMenu.Visible = state;
             }
             if (panel == "client") {
-                groupBoxClient.Visible = state;
+                panelClient.Visible = state;
             }
         }
 
@@ -318,7 +319,6 @@ namespace Reservation_System {
 
         private void room1_Click(object sender, EventArgs e) {
             fetchClientInfo(1);
-            groupBoxClient.Text = "Client in room 1";
             txtRoomId.Text = "1";
             roomStateHandler(0, room1);
             showHide("menu", false);
@@ -330,7 +330,6 @@ namespace Reservation_System {
             roomStateHandler(1, room2);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 2";
             txtRoomId.Text = "2";
         }
 
@@ -339,7 +338,6 @@ namespace Reservation_System {
             roomStateHandler(2, room3);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 3";
             txtRoomId.Text = "3";
         }
 
@@ -348,7 +346,6 @@ namespace Reservation_System {
             roomStateHandler(3, room4);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 4";
             txtRoomId.Text = "4";
         }
 
@@ -357,7 +354,6 @@ namespace Reservation_System {
             roomStateHandler(4, room5);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 5";
             txtRoomId.Text = "5";
         }
 
@@ -366,7 +362,6 @@ namespace Reservation_System {
             roomStateHandler(5, room6);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 6";
             txtRoomId.Text = "6";
         }
 
@@ -375,7 +370,6 @@ namespace Reservation_System {
             roomStateHandler(6, room7);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 7";
             txtRoomId.Text = "7";
         }
 
@@ -384,7 +378,6 @@ namespace Reservation_System {
             roomStateHandler(7, room8);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 8";
             txtRoomId.Text = "8";
         }
 
@@ -393,7 +386,6 @@ namespace Reservation_System {
             roomStateHandler(8, room9);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 9";
             txtRoomId.Text = "9";
         }
 
@@ -402,7 +394,6 @@ namespace Reservation_System {
             roomStateHandler(9, room10);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 10";
             txtRoomId.Text = "10";
         }
 
@@ -411,7 +402,6 @@ namespace Reservation_System {
             roomStateHandler(10, room11);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 11";
             txtRoomId.Text = "11";
         }
 
@@ -420,7 +410,6 @@ namespace Reservation_System {
             roomStateHandler(11, room12);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 12";
             txtRoomId.Text = "12";
         }
 
@@ -429,7 +418,6 @@ namespace Reservation_System {
             roomStateHandler(12, room13);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 13";
             txtRoomId.Text = "13";
         }
 
@@ -438,7 +426,6 @@ namespace Reservation_System {
             roomStateHandler(13, room14);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 14";
             txtRoomId.Text = "14";
         }
 
@@ -447,7 +434,6 @@ namespace Reservation_System {
             roomStateHandler(14, room15);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 15";
             txtRoomId.Text = "15";
         }
 
@@ -456,7 +442,6 @@ namespace Reservation_System {
             roomStateHandler(15, room16);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 16";
             txtRoomId.Text = "16";
         }
 
@@ -465,7 +450,6 @@ namespace Reservation_System {
             roomStateHandler(16, room17);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 17";
             txtRoomId.Text = "17";
         }
 
@@ -474,7 +458,6 @@ namespace Reservation_System {
             roomStateHandler(17, room18);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 18";
             txtRoomId.Text = "18";
         }
 
@@ -483,7 +466,6 @@ namespace Reservation_System {
             roomStateHandler(18, room19);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 19";
             txtRoomId.Text = "19";
         }
 
@@ -492,7 +474,6 @@ namespace Reservation_System {
             roomStateHandler(19, room20);
             showHide("menu", false);
             showHide("client", true);
-            groupBoxClient.Text = "Client in room 20";
             txtRoomId.Text = "20";
         }
 
@@ -566,6 +547,30 @@ namespace Reservation_System {
 
         private void noOfDays_ValueChanged(object sender, EventArgs e) {
             txtTotal.Text = (noOfDays.Value * 2000).ToString() ;
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e) {
+            if (txtUsername.Text == "name@company.com") {
+                txtUsername.Text = "";
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e) {
+            if (txtPassword.Text == "password") {
+                txtPassword.Text = "";
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e) {
+            if (txtUsername.Text == "") {
+                txtUsername.Text = "name@company.com";
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e) {
+            if (txtPassword.Text == "") {
+                txtPassword.Text = "password";
+            }
         }
     }
 }

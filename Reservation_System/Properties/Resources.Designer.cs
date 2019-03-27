@@ -60,6 +60,20 @@ namespace Reservation_System.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap at {
+            get {
+                object obj = ResourceManager.GetObject("at", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap blackgradient {
+            get {
+                object obj = ResourceManager.GetObject("blackgradient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap doorAvailable {
             get {
                 object obj = ResourceManager.GetObject("doorAvailable", resourceCulture);
@@ -92,6 +106,13 @@ namespace Reservation_System.Properties {
             get {
                 object obj = ResourceManager.GetObject("jamg", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap key {
+            get {
+                object obj = ResourceManager.GetObject("key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

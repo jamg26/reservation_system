@@ -166,6 +166,24 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black gradient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black gradient.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blackgradient.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\at.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
