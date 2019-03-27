@@ -97,6 +97,8 @@
             this.label49 = new System.Windows.Forms.Label();
             this.labelTotalRooms = new System.Windows.Forms.Label();
             this.groupBoxClient = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.noOfDays = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -118,8 +120,6 @@
             this.txtRoomOwner = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -968,6 +968,26 @@
             this.groupBoxClient.TabIndex = 0;
             this.groupBoxClient.TabStop = false;
             // 
+            // txtTotal
+            // 
+            this.txtTotal.AutoSize = true;
+            this.txtTotal.Location = new System.Drawing.Point(343, 319);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(10, 13);
+            this.txtTotal.TabIndex = 33;
+            this.txtTotal.Text = "-";
+            this.txtTotal.Visible = false;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(309, 319);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(34, 13);
+            this.labelTotal.TabIndex = 32;
+            this.labelTotal.Text = "Total:";
+            this.labelTotal.Visible = false;
+            // 
             // noOfDays
             // 
             this.noOfDays.Location = new System.Drawing.Point(12, 297);
@@ -1005,7 +1025,7 @@
             this.dateTimeFrom.Location = new System.Drawing.Point(12, 255);
             this.dateTimeFrom.MinDate = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
             this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(145, 20);
+            this.dateTimeFrom.Size = new System.Drawing.Size(185, 20);
             this.dateTimeFrom.TabIndex = 5;
             // 
             // txtStatus
@@ -1168,34 +1188,14 @@
             this.label36.TabIndex = 3;
             this.label36.Text = "Fullname";
             // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(309, 319);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(34, 13);
-            this.labelTotal.TabIndex = 32;
-            this.labelTotal.Text = "Total:";
-            this.labelTotal.Visible = false;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.AutoSize = true;
-            this.txtTotal.Location = new System.Drawing.Point(343, 319);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(10, 13);
-            this.txtTotal.TabIndex = 33;
-            this.txtTotal.Text = "-";
-            this.txtTotal.Visible = false;
-            // 
             // Main
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 450);
-            this.Controls.Add(this.groupBoxClient);
             this.Controls.Add(this.groupBoxLogin);
+            this.Controls.Add(this.groupBoxClient);
             this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.RecentCheckOutTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
