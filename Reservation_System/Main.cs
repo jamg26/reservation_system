@@ -276,30 +276,34 @@ namespace Reservation_System {
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            dbClass db = new dbClass();
-            if (txtRoomOwner.Text == "" || txtEmail.Text == "") {
-                MessageBox.Show("Fill up all forms!");
-            } else {
-                System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
-                if (owner.Rows.Count == 0) {
-                    db.dbInsert("INSERT INTO client (name, email, phone) VALUES('" + txtRoomOwner.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "')");
+            if (txtEmail.Text.Contains('@')) {
+                dbClass db = new dbClass();
+                if (txtRoomOwner.Text == "" || txtEmail.Text == "") {
+                    MessageBox.Show("Fill up all forms!");
                 } else {
-                    db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
+                    System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
+                    if (owner.Rows.Count == 0) {
+                        db.dbInsert("INSERT INTO client (name, email, phone) VALUES('" + txtRoomOwner.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "')");
+                    } else {
+                        db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
+                    }
+                    decimal percent = (decimal)0.70;
+                    double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
+                    db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
+                    db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "')");
+                    showHide("client", false);
+                    showHide("menu", true);
+                    setRoomState();
+                    getRoomsCount();
+                    getCheckoutLog();
+                    sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
+                    RecentCheckOutTab.Hide();
+                    RecentCheckOutTab.Show();
+                    MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
+                    clearFields();
                 }
-                decimal percent = (decimal)0.70;
-                double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
-                db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
-                db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "')");
-                showHide("client", false);
-                showHide("menu", true);
-                setRoomState();
-                getRoomsCount();
-                getCheckoutLog();
-                sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
-                RecentCheckOutTab.Hide();
-                RecentCheckOutTab.Show();
-                MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
-                clearFields();
+            } else {
+                MessageBox.Show("Enter valid email address!");
             }
         }
 
