@@ -115,12 +115,12 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -688,7 +688,7 @@
             this.tabLogPage.Location = new System.Drawing.Point(4, 22);
             this.tabLogPage.Name = "tabLogPage";
             this.tabLogPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogPage.Size = new System.Drawing.Size(490, 400);
+            this.tabLogPage.Size = new System.Drawing.Size(490, 413);
             this.tabLogPage.TabIndex = 1;
             this.tabLogPage.Text = "Recent Clients";
             this.tabLogPage.UseVisualStyleBackColor = true;
@@ -711,7 +711,7 @@
             this.RecentReservedTab.Location = new System.Drawing.Point(4, 22);
             this.RecentReservedTab.Name = "RecentReservedTab";
             this.RecentReservedTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RecentReservedTab.Size = new System.Drawing.Size(490, 400);
+            this.RecentReservedTab.Size = new System.Drawing.Size(490, 413);
             this.RecentReservedTab.TabIndex = 2;
             this.RecentReservedTab.Text = "Recent Reservation";
             this.RecentReservedTab.UseVisualStyleBackColor = true;
@@ -733,7 +733,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(490, 400);
+            this.tabPage1.Size = new System.Drawing.Size(490, 413);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Recent Checkout";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -755,7 +755,7 @@
             this.RecentLoginTab.Location = new System.Drawing.Point(4, 22);
             this.RecentLoginTab.Name = "RecentLoginTab";
             this.RecentLoginTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RecentLoginTab.Size = new System.Drawing.Size(490, 400);
+            this.RecentLoginTab.Size = new System.Drawing.Size(490, 413);
             this.RecentLoginTab.TabIndex = 4;
             this.RecentLoginTab.Text = "Recent Login";
             this.RecentLoginTab.UseVisualStyleBackColor = true;
@@ -1170,6 +1170,34 @@
             this.panelLogin.Size = new System.Drawing.Size(300, 455);
             this.panelLogin.TabIndex = 5;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(103, 421);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Copyright 2019";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(66, 395);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Marton Suites Reservation System";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.Location = new System.Drawing.Point(50, 143);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(221, 1);
+            this.panel2.TabIndex = 8;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1197,34 +1225,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Location = new System.Drawing.Point(50, 143);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(221, 1);
-            this.panel2.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(66, 395);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Marton Suites Reservation System";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(103, 421);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Copyright 2019";
             // 
             // panelMenu
             // 
@@ -1311,9 +1311,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(918, 450);
+            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.RecentCheckOutTab);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
