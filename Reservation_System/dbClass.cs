@@ -15,7 +15,7 @@ namespace Reservation_System {
             string dbServer = "35.198.198.212";
             string dbName = "Reservation_System";
             string dbUser = "sa";
-            SqlConnection conn = new SqlConnection("Data Source = " + dbServer + "; Initial Catalog = " + dbName + "; User ID=" + dbUser + ";Password=Jamuel26;");
+            SqlConnection conn = new SqlConnection("Data Source = " + dbServer + "; Initial Catalog = " + dbName + "; User ID=" + dbUser + ";Password=Jamuel1226;");
             return conn;
         }
 
