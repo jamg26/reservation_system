@@ -127,6 +127,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panelClient = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtBalance = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -1104,7 +1106,7 @@
             this.btnReserve.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReserve.Location = new System.Drawing.Point(298, 337);
+            this.btnReserve.Location = new System.Drawing.Point(299, 337);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(90, 31);
             this.btnReserve.TabIndex = 8;
@@ -1279,8 +1281,10 @@
             this.panelClient.Controls.Add(this.panel4);
             this.panelClient.Controls.Add(this.label40);
             this.panelClient.Controls.Add(this.txtRoomOwner);
+            this.panelClient.Controls.Add(this.txtBalance);
             this.panelClient.Controls.Add(this.txtTotal);
             this.panelClient.Controls.Add(this.txtRoomId);
+            this.panelClient.Controls.Add(this.label27);
             this.panelClient.Controls.Add(this.labelTotal);
             this.panelClient.Controls.Add(this.btnReserve);
             this.panelClient.Controls.Add(this.noOfDays);
@@ -1304,6 +1308,26 @@
             this.panelClient.Size = new System.Drawing.Size(408, 438);
             this.panelClient.TabIndex = 38;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(297, 306);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(49, 13);
+            this.label27.TabIndex = 32;
+            this.label27.Text = "Balance:";
+            this.label27.Visible = false;
+            // 
+            // txtBalance
+            // 
+            this.txtBalance.AutoSize = true;
+            this.txtBalance.Location = new System.Drawing.Point(346, 306);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(10, 13);
+            this.txtBalance.TabIndex = 33;
+            this.txtBalance.Text = "-";
+            this.txtBalance.Visible = false;
+            // 
             // Main
             // 
             this.AcceptButton = this.btnLogin;
@@ -1311,8 +1335,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(918, 450);
-            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.RecentCheckOutTab);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1474,6 +1498,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelClient;
+        private System.Windows.Forms.Label txtBalance;
+        private System.Windows.Forms.Label label27;
     }
 }
 

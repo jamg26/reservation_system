@@ -64,6 +64,8 @@ namespace Reservation_System {
             Room roomm = new Room();
             System.Data.DataTable states = roomm.getRoomState();
             if (states.Rows[row][3].ToString() == "available") {
+                txtBalance.Visible = false;
+                label27.Visible = false;
                 room.Image = Properties.Resources.dooropen;
                 btnReserve.Enabled = true;
                 btnAvailable.Enabled = false;
@@ -74,7 +76,10 @@ namespace Reservation_System {
                 txtStatus.Text = "Available";
                 clientFieldState(true);
             } 
+
             if (states.Rows[row][3].ToString() == "reserved") {
+                txtBalance.Visible = true;
+                label27.Visible = true;
                 room.Image = Properties.Resources.doorPending;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
@@ -82,6 +87,7 @@ namespace Reservation_System {
                 btnAvailable.Visible = true;
                 clientFieldState(false);
                 txtStatus.Text = "Reserved";
+                txtBalance.Text = getBalance("room " + txtRoomId.Text) + ".00";
             }
             if (states.Rows[row][3].ToString() == "occupied")  {
                 room.Image = Properties.Resources.doorOccupied;
@@ -96,6 +102,7 @@ namespace Reservation_System {
             getReservedLog();
             getCheckoutLog();
             getLoginLog();
+            txtTotal.Text = (noOfDays.Value * 2000).ToString() + ".00";
         }
 
         private void setRoomState() {
@@ -175,10 +182,20 @@ namespace Reservation_System {
             }
         }
 
+        private string getBalance(string room) {
+            dbClass db = new dbClass();
+            System.Data.DataTable dt = db.dbSelect("SELECT balance from reservelog WHERE name='" + room + "'");
+            try {
+                string bal = dt.Rows[0][0].ToString();
+                return bal;
+            } catch (Exception) { }
+            return "";
+        }
+
         private void getCheckoutLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance FROM reservelog WHERE state='checkout'");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, checkoutdate as 'checkout date', owner, email, phone, days, balance FROM reservelog WHERE state='checkout'");
                 dataGridView3.DataSource = dt;
                 dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -486,7 +503,7 @@ namespace Reservation_System {
             if (result.Equals(DialogResult.OK)) {
                 dbClass db = new dbClass();
                 db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1 WHERE id=" + txtRoomId.Text);
-                db.dbUpdate("UPDATE reservelog SET state='checkout' WHERE name='Room " + txtRoomId.Text + "'");
+                db.dbUpdate("UPDATE reservelog SET state='checkout', checkoutdate='" + getDateTime() + "' WHERE name='Room " + txtRoomId.Text + "'");
                 showHide("menu", true);
                 showHide("client", false);
                 setRoomState();
@@ -550,7 +567,7 @@ namespace Reservation_System {
         }
 
         private void noOfDays_ValueChanged(object sender, EventArgs e) {
-            txtTotal.Text = (noOfDays.Value * 2000).ToString() ;
+            txtTotal.Text = (noOfDays.Value * 2000).ToString() + ".00" ;
         }
 
         private void txtUsername_Enter(object sender, EventArgs e) {
