@@ -15,6 +15,7 @@ namespace Reservation_System {
         SqlConnection conn = dbClass.getConnection();
         private System.Data.DataTable clientInfo;
         private double price = 2000;
+        System.Data.DataTable balance;
 
         public Main() {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace Reservation_System {
         private void Main_Load(object sender, EventArgs e) {
             this.Width = 300;
             this.ActiveControl = btnLogin;
+            getBalance();
             setRoomState();
             getRoomsCount();
             getClientList();
@@ -64,6 +66,8 @@ namespace Reservation_System {
             Room roomm = new Room();
             System.Data.DataTable states = roomm.getRoomState();
             if (states.Rows[row][3].ToString() == "available") {
+                btnCancel.Visible = false;
+                btnPaid.Visible = false;
                 txtBalance.Visible = false;
                 label27.Visible = false;
                 room.Image = Properties.Resources.dooropen;
@@ -78,19 +82,27 @@ namespace Reservation_System {
             } 
 
             if (states.Rows[row][3].ToString() == "reserved") {
+                btnAvailable.Visible = false;
+                btnCancel.Visible = true;
+                btnPaid.Visible = true;
+                txtBalance.Text = this.balance.Rows[row][0].ToString();
                 txtBalance.Visible = true;
                 label27.Visible = true;
-                room.Image = Properties.Resources.doorPending;
+                room.Image = Properties.Resources.doorOccupied;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
                 btnReserve.Visible = false;
                 btnAvailable.Visible = true;
                 clientFieldState(false);
                 txtStatus.Text = "Reserved";
-                txtBalance.Text = getBalance("room " + txtRoomId.Text) + ".00";
             }
+
             if (states.Rows[row][3].ToString() == "occupied")  {
-                room.Image = Properties.Resources.doorOccupied;
+                btnCancel.Visible = false;
+                btnPaid.Visible = false;
+                txtBalance.Text = this.balance.Rows[row][0].ToString();
+                txtBalance.Visible = true;
+                room.Image = Properties.Resources.doorPending;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
                 btnReserve.Visible = false;
@@ -130,10 +142,12 @@ namespace Reservation_System {
 
         private void getRoomsCount() {
             dbClass db = new dbClass();
-            System.Data.DataTable res = db.dbSelect("SELECT * FROM room WHERE state='reserved'");
+            System.Data.DataTable res = db.dbSelect("SELECT * FROM room WHERE state='occupied'");
             System.Data.DataTable avail = db.dbSelect("SELECT * FROM room WHERE state='available'");
+            System.Data.DataTable pen  = db.dbSelect("SELECT * FROM room WHERE state='reserved'");
             labelReservedRooms.Text = res.Rows.Count.ToString(); 
-            labelAvailableRooms.Text = avail.Rows.Count.ToString(); 
+            labelAvailableRooms.Text = avail.Rows.Count.ToString();
+            labelPending.Text = pen.Rows.Count.ToString();
         }
 
         private void getClientList() {
@@ -182,14 +196,10 @@ namespace Reservation_System {
             }
         }
 
-        private string getBalance(string room) {
+        private void getBalance() {
             dbClass db = new dbClass();
-            System.Data.DataTable dt = db.dbSelect("SELECT balance from reservelog WHERE name='" + room + "'");
-            try {
-                string bal = dt.Rows[0][0].ToString();
-                return bal;
-            } catch (Exception) { }
-            return "";
+            System.Data.DataTable dt = db.dbSelect("SELECT balance from reservelog");
+            this.balance = dt;
         }
 
         private void getCheckoutLog() {
@@ -591,6 +601,34 @@ namespace Reservation_System {
         private void txtPassword_Leave(object sender, EventArgs e) {
             if (txtPassword.Text == "") {
                 txtPassword.Text = "password";
+            }
+        }
+
+        private void btnPaid_Click(object sender, EventArgs e) {
+            dbClass db = new dbClass();
+            db.dbUpdate("UPDATE room SET state='occupied' WHERE id='" + txtRoomId.Text + "'");
+            showHide("client", false);
+            showHide("menu", true);
+            setRoomState();
+            getCheckoutLog();
+            MessageBox.Show("Checked in!");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            DialogResult result = MessageBox.Show("Cancel", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result.Equals(DialogResult.OK)) {
+                dbClass db = new dbClass();
+                db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1 WHERE id=" + txtRoomId.Text);
+                showHide("menu", true);
+                showHide("client", false);
+                setRoomState();
+                getRoomsCount();
+                getCheckoutLog();
+                RecentCheckOutTab.Hide();
+                RecentCheckOutTab.Show();
+                MessageBox.Show("Room " + txtRoomId.Text + " is now available!");
+            } else {
+
             }
         }
     }

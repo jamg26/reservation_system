@@ -127,8 +127,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panelClient = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
             this.txtBalance = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnPaid = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.labelPending = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -815,7 +819,7 @@
             // labelUserType
             // 
             this.labelUserType.AutoSize = true;
-            this.labelUserType.Location = new System.Drawing.Point(91, 48);
+            this.labelUserType.Location = new System.Drawing.Point(91, 47);
             this.labelUserType.Name = "labelUserType";
             this.labelUserType.Size = new System.Drawing.Size(10, 13);
             this.labelUserType.TabIndex = 7;
@@ -824,7 +828,7 @@
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(91, 23);
+            this.labelUser.Location = new System.Drawing.Point(91, 22);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(10, 13);
             this.labelUser.TabIndex = 6;
@@ -833,7 +837,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 46);
+            this.label24.Location = new System.Drawing.Point(27, 47);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(55, 13);
             this.label24.TabIndex = 1;
@@ -842,7 +846,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(5, 23);
+            this.label23.Location = new System.Drawing.Point(15, 24);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(67, 13);
             this.label23.TabIndex = 0;
@@ -850,6 +854,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelPending);
+            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label46);
             this.groupBox1.Controls.Add(this.labelAvailableRooms);
             this.groupBox1.Controls.Add(this.label48);
@@ -858,14 +864,14 @@
             this.groupBox1.Controls.Add(this.labelTotalRooms);
             this.groupBox1.Location = new System.Drawing.Point(12, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 100);
+            this.groupBox1.Size = new System.Drawing.Size(367, 118);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 28);
+            this.label46.Location = new System.Drawing.Point(31, 28);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(70, 13);
             this.label46.TabIndex = 0;
@@ -883,7 +889,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 44);
+            this.label48.Location = new System.Drawing.Point(9, 44);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(92, 13);
             this.label48.TabIndex = 1;
@@ -901,7 +907,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 60);
+            this.label49.Location = new System.Drawing.Point(12, 60);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(89, 13);
             this.label49.TabIndex = 2;
@@ -1106,7 +1112,7 @@
             this.btnReserve.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReserve.Location = new System.Drawing.Point(299, 337);
+            this.btnReserve.Location = new System.Drawing.Point(298, 337);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(90, 31);
             this.btnReserve.TabIndex = 8;
@@ -1273,6 +1279,8 @@
             // 
             // panelClient
             // 
+            this.panelClient.Controls.Add(this.btnCancel);
+            this.panelClient.Controls.Add(this.btnPaid);
             this.panelClient.Controls.Add(this.label39);
             this.panelClient.Controls.Add(this.panel6);
             this.panelClient.Controls.Add(this.panel3);
@@ -1308,16 +1316,6 @@
             this.panelClient.Size = new System.Drawing.Size(408, 438);
             this.panelClient.TabIndex = 38;
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(297, 306);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(49, 13);
-            this.label27.TabIndex = 32;
-            this.label27.Text = "Balance:";
-            this.label27.Visible = false;
-            // 
             // txtBalance
             // 
             this.txtBalance.AutoSize = true;
@@ -1328,6 +1326,60 @@
             this.txtBalance.Text = "-";
             this.txtBalance.Visible = false;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(297, 306);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(49, 13);
+            this.label27.TabIndex = 32;
+            this.label27.Text = "Balance:";
+            this.label27.Visible = false;
+            // 
+            // btnPaid
+            // 
+            this.btnPaid.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
+            this.btnPaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPaid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPaid.Location = new System.Drawing.Point(299, 374);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(91, 31);
+            this.btnPaid.TabIndex = 38;
+            this.btnPaid.Text = "CHECK IN";
+            this.btnPaid.UseVisualStyleBackColor = true;
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Location = new System.Drawing.Point(299, 337);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 31);
+            this.btnCancel.TabIndex = 39;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // labelPending
+            // 
+            this.labelPending.AutoSize = true;
+            this.labelPending.Location = new System.Drawing.Point(114, 77);
+            this.labelPending.Name = "labelPending";
+            this.labelPending.Size = new System.Drawing.Size(10, 13);
+            this.labelPending.TabIndex = 7;
+            this.labelPending.Text = "-";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 77);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 13);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "Pending Rooms:";
+            // 
             // Main
             // 
             this.AcceptButton = this.btnLogin;
@@ -1335,9 +1387,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(918, 450);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelLogin);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.RecentCheckOutTab);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1500,6 +1552,10 @@
         private System.Windows.Forms.Panel panelClient;
         private System.Windows.Forms.Label txtBalance;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button btnPaid;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label labelPending;
+        private System.Windows.Forms.Label label29;
     }
 }
 
