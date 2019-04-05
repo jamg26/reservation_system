@@ -16,6 +16,7 @@ namespace Reservation_System {
         private System.Data.DataTable clientInfo;
         private double price = 2000;
         System.Data.DataTable balance;
+        int reference;
 
         public Main() {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Reservation_System {
             getReservedLog();
             getCheckoutLog();
             getLoginLog();
+            genReference();
             showHide("login", true);
             showHide("room", false);
             showHide("menu", false);
@@ -38,6 +40,10 @@ namespace Reservation_System {
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
+        private void genReference() {
+            Random random = new Random();  
+            this.reference = random.Next(10000000, 99999999);
+        }
 
         private void showHide(string panel, bool state) {
             if (panel == "login") {
@@ -66,6 +72,7 @@ namespace Reservation_System {
             Room roomm = new Room();
             System.Data.DataTable states = roomm.getRoomState();
             if (states.Rows[row][3].ToString() == "available") {
+                labelRef.Text = this.reference.ToString();
                 btnCancel.Visible = false;
                 btnPaid.Visible = false;
                 txtBalance.Visible = false;
@@ -172,7 +179,7 @@ namespace Reservation_System {
         private void getReservedLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance FROM reservelog");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance, reference FROM reservelog");
                 dataGridView2.DataSource = dt;
                 dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -181,6 +188,7 @@ namespace Reservation_System {
                 dataGridView2.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView2.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
                 dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView2.Columns[0].ReadOnly = true;
@@ -190,6 +198,7 @@ namespace Reservation_System {
                 dataGridView2.Columns[4].ReadOnly = true;
                 dataGridView2.Columns[5].ReadOnly = true;
                 dataGridView2.Columns[6].ReadOnly = true;
+                dataGridView2.Columns[7].ReadOnly = true;
 
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -205,7 +214,7 @@ namespace Reservation_System {
         private void getCheckoutLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, checkoutdate as 'checkout date', owner, email, phone, days, balance FROM reservelog WHERE state='checkout'");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, checkoutdate as 'checkout date', owner, email, phone, days, balance, reference FROM reservelog WHERE state='checkout'");
                 dataGridView3.DataSource = dt;
                 dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -214,6 +223,7 @@ namespace Reservation_System {
                 dataGridView3.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView3.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 //dataGridView3.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -224,6 +234,7 @@ namespace Reservation_System {
                 dataGridView3.Columns[4].ReadOnly = true;
                 dataGridView3.Columns[5].ReadOnly = true;
                 dataGridView3.Columns[6].ReadOnly = true;
+                dataGridView3.Columns[7].ReadOnly = true;
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -316,8 +327,8 @@ namespace Reservation_System {
                     }
                     decimal percent = (decimal)0.70;
                     double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
-                    db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "' WHERE id=" + txtRoomId.Text);
-                    db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "')");
+                    db.dbUpdate("UPDATE room SET owner = '" + txtRoomOwner.Text + "', state='reserved', reserveddate='" + dateTimeFrom.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "', days='" + noOfDays.Value + "', reference='" + this.reference + "' WHERE id=" + txtRoomId.Text);
+                    db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance, reference) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "', '" + this.reference + "')");
                     showHide("client", false);
                     showHide("menu", true);
                     setRoomState();
@@ -328,6 +339,7 @@ namespace Reservation_System {
                     RecentCheckOutTab.Show();
                     MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
                     clearFields();
+                    genReference();
                 }
             } else {
                 MessageBox.Show("Enter valid email address!");
@@ -341,6 +353,7 @@ namespace Reservation_System {
             txtRoomOwner.Text = this.clientInfo.Rows[0][2].ToString();
             txtEmail.Text = this.clientInfo.Rows[0][5].ToString();
             txtMobile.Text = this.clientInfo.Rows[0][6].ToString();
+            labelRef.Text = this.clientInfo.Rows[0]["reference"].ToString();
             try {
                 noOfDays.Value = Convert.ToInt32(this.clientInfo.Rows[0][7]);
             } catch (InvalidCastException) {
@@ -512,7 +525,7 @@ namespace Reservation_System {
             DialogResult result = MessageBox.Show("Checkout", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK)) {
                 dbClass db = new dbClass();
-                db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1 WHERE id=" + txtRoomId.Text);
+                db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1, reference='' WHERE id=" + txtRoomId.Text);
                 db.dbUpdate("UPDATE reservelog SET state='checkout', checkoutdate='" + getDateTime() + "' WHERE name='Room " + txtRoomId.Text + "'");
                 showHide("menu", true);
                 showHide("client", false);
@@ -558,7 +571,7 @@ namespace Reservation_System {
             MailAddress to = new MailAddress(email, fullname);
             MailMessage mm = new MailMessage(from, to);
             mm.Subject = "Marton Suites Room Reservation";
-            mm.Body = "Hello " + fullname + " we would like to inform you that you have a pending reservation in Marton Suites.\nTo complete the reservation you need to pay PHP " + total + " OR 70% for downpayment policy within this day.\nYou can pay through our bank accounts, ATM or in cash.\n\nRESERVATION INFO:\nReservation Room: " + room + "\nReservation Date: " + date + "\nNumber of days: " + days + "\n\nPlease bring the reference of your payment in the time of reservation.\n\n\nRegards,\nMarton Suites Management";
+            mm.Body = "Hello " + fullname + " we would like to inform you that you have a pending reservation in Marton Suites.\nTo complete the reservation you need to pay PHP " + total + " OR 70% for downpayment policy within this day.\nYou can pay through our bank accounts, ATM or in cash.\n\nRESERVATION INFO:\nReservation Room: " + room + "\nReservation Date: " + date + "\nNumber of days: " + days + "\nReference: " + this.reference + "\n\nPlease bring the reference of your payment in the time of reservation.\n\n\nRegards,\nMarton Suites Management";
             mm.BodyEncoding = UTF8Encoding.UTF8;
             mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 

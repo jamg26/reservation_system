@@ -85,6 +85,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelPending = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.labelAvailableRooms = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -127,12 +129,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panelClient = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnPaid = new System.Windows.Forms.Button();
             this.txtBalance = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnPaid = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.labelPending = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.labelRef = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -868,6 +870,24 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // labelPending
+            // 
+            this.labelPending.AutoSize = true;
+            this.labelPending.Location = new System.Drawing.Point(114, 77);
+            this.labelPending.Name = "labelPending";
+            this.labelPending.Size = new System.Drawing.Size(10, 13);
+            this.labelPending.TabIndex = 7;
+            this.labelPending.Text = "-";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 77);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 13);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "Pending Rooms:";
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -1112,7 +1132,7 @@
             this.btnReserve.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReserve.Location = new System.Drawing.Point(298, 337);
+            this.btnReserve.Location = new System.Drawing.Point(299, 337);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(90, 31);
             this.btnReserve.TabIndex = 8;
@@ -1279,6 +1299,8 @@
             // 
             // panelClient
             // 
+            this.panelClient.Controls.Add(this.labelRef);
+            this.panelClient.Controls.Add(this.label30);
             this.panelClient.Controls.Add(this.btnCancel);
             this.panelClient.Controls.Add(this.btnPaid);
             this.panelClient.Controls.Add(this.label39);
@@ -1316,6 +1338,32 @@
             this.panelClient.Size = new System.Drawing.Size(408, 438);
             this.panelClient.TabIndex = 38;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Location = new System.Drawing.Point(299, 337);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 31);
+            this.btnCancel.TabIndex = 39;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnPaid
+            // 
+            this.btnPaid.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
+            this.btnPaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPaid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPaid.Location = new System.Drawing.Point(299, 374);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(91, 31);
+            this.btnPaid.TabIndex = 38;
+            this.btnPaid.Text = "CHECK IN";
+            this.btnPaid.UseVisualStyleBackColor = true;
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            // 
             // txtBalance
             // 
             this.txtBalance.AutoSize = true;
@@ -1336,49 +1384,23 @@
             this.label27.Text = "Balance:";
             this.label27.Visible = false;
             // 
-            // btnPaid
+            // labelRef
             // 
-            this.btnPaid.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
-            this.btnPaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPaid.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPaid.Location = new System.Drawing.Point(299, 374);
-            this.btnPaid.Name = "btnPaid";
-            this.btnPaid.Size = new System.Drawing.Size(91, 31);
-            this.btnPaid.TabIndex = 38;
-            this.btnPaid.Text = "CHECK IN";
-            this.btnPaid.UseVisualStyleBackColor = true;
-            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            this.labelRef.AutoSize = true;
+            this.labelRef.Location = new System.Drawing.Point(84, 421);
+            this.labelRef.Name = "labelRef";
+            this.labelRef.Size = new System.Drawing.Size(10, 13);
+            this.labelRef.TabIndex = 41;
+            this.labelRef.Text = "-";
             // 
-            // btnCancel
+            // label30
             // 
-            this.btnCancel.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
-            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Location = new System.Drawing.Point(299, 337);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 31);
-            this.btnCancel.TabIndex = 39;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // labelPending
-            // 
-            this.labelPending.AutoSize = true;
-            this.labelPending.Location = new System.Drawing.Point(114, 77);
-            this.labelPending.Name = "labelPending";
-            this.labelPending.Size = new System.Drawing.Size(10, 13);
-            this.labelPending.TabIndex = 7;
-            this.labelPending.Text = "-";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(16, 77);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(85, 13);
-            this.label29.TabIndex = 6;
-            this.label29.Text = "Pending Rooms:";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(18, 421);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(60, 13);
+            this.label30.TabIndex = 40;
+            this.label30.Text = "Reference:";
             // 
             // Main
             // 
@@ -1387,8 +1409,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(918, 450);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.RecentCheckOutTab);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1556,6 +1578,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label labelPending;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label labelRef;
+        private System.Windows.Forms.Label label30;
     }
 }
 
