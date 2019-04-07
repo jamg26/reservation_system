@@ -129,12 +129,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panelClient = new System.Windows.Forms.Panel();
+            this.labelRef = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPaid = new System.Windows.Forms.Button();
             this.txtBalance = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.labelRef = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -1338,6 +1338,24 @@
             this.panelClient.Size = new System.Drawing.Size(408, 438);
             this.panelClient.TabIndex = 38;
             // 
+            // labelRef
+            // 
+            this.labelRef.AutoSize = true;
+            this.labelRef.Location = new System.Drawing.Point(84, 421);
+            this.labelRef.Name = "labelRef";
+            this.labelRef.Size = new System.Drawing.Size(10, 13);
+            this.labelRef.TabIndex = 41;
+            this.labelRef.Text = "-";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(18, 421);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(60, 13);
+            this.label30.TabIndex = 40;
+            this.label30.Text = "Reference:";
+            // 
             // btnCancel
             // 
             this.btnCancel.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
@@ -1383,24 +1401,6 @@
             this.label27.TabIndex = 32;
             this.label27.Text = "Balance:";
             this.label27.Visible = false;
-            // 
-            // labelRef
-            // 
-            this.labelRef.AutoSize = true;
-            this.labelRef.Location = new System.Drawing.Point(84, 421);
-            this.labelRef.Name = "labelRef";
-            this.labelRef.Size = new System.Drawing.Size(10, 13);
-            this.labelRef.TabIndex = 41;
-            this.labelRef.Text = "-";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(18, 421);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(60, 13);
-            this.label30.TabIndex = 40;
-            this.label30.Text = "Reference:";
             // 
             // Main
             // 

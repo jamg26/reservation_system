@@ -38,7 +38,7 @@ namespace Reservation_System {
             showHide("menu", false);
             showHide("client", false);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-        }
+            }
 
         private void genReference() {
             Random random = new Random();  
