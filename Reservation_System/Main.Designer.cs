@@ -69,6 +69,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.room11 = new System.Windows.Forms.PictureBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.tabLogPage = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RecentReservedTab = new System.Windows.Forms.TabPage();
@@ -135,6 +137,10 @@
             this.btnPaid = new System.Windows.Forms.Button();
             this.txtBalance = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.labelt_res = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.RecentCheckOutTab.SuspendLayout();
             this.RoomTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.room1)).BeginInit();
@@ -157,6 +163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabLogPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.RecentReservedTab.SuspendLayout();
@@ -173,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelClient.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -226,6 +235,7 @@
             // RecentCheckOutTab
             // 
             this.RecentCheckOutTab.Controls.Add(this.RoomTab);
+            this.RecentCheckOutTab.Controls.Add(this.tabPage2);
             this.RecentCheckOutTab.Controls.Add(this.tabLogPage);
             this.RecentCheckOutTab.Controls.Add(this.RecentReservedTab);
             this.RecentCheckOutTab.Controls.Add(this.tabPage1);
@@ -690,6 +700,30 @@
             this.room11.TabStop = false;
             this.room11.Click += new System.EventHandler(this.room11_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.toolStrip1);
+            this.tabPage2.Controls.Add(this.dataGridView5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(490, 413);
+            this.tabPage2.TabIndex = 5;
+            this.tabPage2.Text = "Reservation List";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            this.dataGridView5.Size = new System.Drawing.Size(481, 404);
+            this.dataGridView5.TabIndex = 0;
+            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            // 
             // tabLogPage
             // 
             this.tabLogPage.Controls.Add(this.dataGridView1);
@@ -856,7 +890,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelt_res);
             this.groupBox1.Controls.Add(this.labelPending);
+            this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label46);
             this.groupBox1.Controls.Add(this.labelAvailableRooms);
@@ -866,7 +902,7 @@
             this.groupBox1.Controls.Add(this.labelTotalRooms);
             this.groupBox1.Location = new System.Drawing.Point(12, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 118);
+            this.groupBox1.Size = new System.Drawing.Size(367, 130);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -1029,7 +1065,7 @@
             this.btnAvailable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAvailable.Enabled = false;
-            this.btnAvailable.Location = new System.Drawing.Point(298, 337);
+            this.btnAvailable.Location = new System.Drawing.Point(299, 337);
             this.btnAvailable.Name = "btnAvailable";
             this.btnAvailable.Size = new System.Drawing.Size(90, 31);
             this.btnAvailable.TabIndex = 8;
@@ -1132,7 +1168,7 @@
             this.btnReserve.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReserve.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReserve.Location = new System.Drawing.Point(299, 337);
+            this.btnReserve.Location = new System.Drawing.Point(299, 374);
             this.btnReserve.Name = "btnReserve";
             this.btnReserve.Size = new System.Drawing.Size(90, 31);
             this.btnReserve.TabIndex = 8;
@@ -1361,7 +1397,7 @@
             this.btnCancel.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Location = new System.Drawing.Point(299, 337);
+            this.btnCancel.Location = new System.Drawing.Point(206, 337);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 31);
             this.btnCancel.TabIndex = 39;
@@ -1374,11 +1410,11 @@
             this.btnPaid.BackgroundImage = global::Reservation_System.Properties.Resources.blackgradient;
             this.btnPaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPaid.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPaid.Location = new System.Drawing.Point(299, 374);
+            this.btnPaid.Location = new System.Drawing.Point(298, 337);
             this.btnPaid.Name = "btnPaid";
             this.btnPaid.Size = new System.Drawing.Size(91, 31);
             this.btnPaid.TabIndex = 38;
-            this.btnPaid.Text = "CHECK IN";
+            this.btnPaid.Text = "PAID";
             this.btnPaid.UseVisualStyleBackColor = true;
             this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
@@ -1401,6 +1437,46 @@
             this.label27.TabIndex = 32;
             this.label27.Text = "Balance:";
             this.label27.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(18, 95);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(83, 13);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "Total Reserved:";
+            // 
+            // labelt_res
+            // 
+            this.labelt_res.AutoSize = true;
+            this.labelt_res.Location = new System.Drawing.Point(114, 95);
+            this.labelt_res.Name = "labelt_res";
+            this.labelt_res.Size = new System.Drawing.Size(10, 13);
+            this.labelt_res.TabIndex = 7;
+            this.labelt_res.Text = "-";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 385);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(484, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(64, 22);
+            this.toolStripButton1.Text = "CHECK IN";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Main
             // 
@@ -1443,6 +1519,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.room10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabLogPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.RecentReservedTab.ResumeLayout(false);
@@ -1463,6 +1542,8 @@
             this.panelMenu.ResumeLayout(false);
             this.panelClient.ResumeLayout(false);
             this.panelClient.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1580,6 +1661,12 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label labelRef;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label labelt_res;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
