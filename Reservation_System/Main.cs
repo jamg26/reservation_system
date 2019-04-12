@@ -94,7 +94,7 @@ namespace Reservation_System {
                 btnAvailable.Visible = false;
                 btnCancel.Visible = true;
                 btnPaid.Visible = true;
-                txtBalance.Text = this.balance.Rows[row][0].ToString();
+                txtBalance.Text = this.balance.Rows[row][0].ToString() + ".00";
                 txtBalance.Visible = true;
                 label27.Visible = true;
                 room.Image = Properties.Resources.doorOccupied;
@@ -109,8 +109,9 @@ namespace Reservation_System {
             if (states.Rows[row][3].ToString() == "occupied")  {
                 btnCancel.Visible = false;
                 btnPaid.Visible = false;
-                txtBalance.Text = this.balance.Rows[row][0].ToString();
+                txtBalance.Text = this.balance.Rows[row][0].ToString() + ".00";
                 txtBalance.Visible = true;
+                label27.Visible = true;
                 room.Image = Properties.Resources.doorPending;
                 btnReserve.Enabled = false;
                 btnAvailable.Enabled = true;
@@ -165,7 +166,7 @@ namespace Reservation_System {
         private void getClientList() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, email, phone FROM client");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, email, phone FROM client ORDER BY id DESC");
                 dataGridView1.DataSource = dt;
                 dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -184,7 +185,7 @@ namespace Reservation_System {
         private void getReservedLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance, reference FROM reservelog");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, reserveddate as 'reserved date', owner, email, phone, days, balance, reference FROM reservelog ORDER BY id DESC");
                 dataGridView2.DataSource = dt;
                 dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -219,7 +220,7 @@ namespace Reservation_System {
         private void getCheckoutLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT name, checkoutdate as 'checkout date', owner, email, phone, days, balance, reference FROM reservelog WHERE state='checkout'");
+                System.Data.DataTable dt = db.dbSelect("SELECT name, checkoutdate as 'checkout date', owner, email, phone, days, balance, reference FROM reservelog WHERE state='checkout' ORDER BY id DESC");
                 dataGridView3.DataSource = dt;
                 dataGridView3.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView3.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -248,7 +249,7 @@ namespace Reservation_System {
         private void getLoginLog() {
             try {
                 dbClass db = new dbClass();
-                System.Data.DataTable dt = db.dbSelect("SELECT email, date, usertype FROM loginlog");
+                System.Data.DataTable dt = db.dbSelect("SELECT email, date, usertype FROM loginlog ORDER BY id DESC");
                 dataGridView4.DataSource = dt;
 
                 dataGridView4.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -317,6 +318,21 @@ namespace Reservation_System {
             txtEmail.Text = "";
         }
 
+        private bool checkDateIfExist() {
+            dbClass db = new dbClass();
+            System.Data.DataTable dt = db.dbSelect("SELECT reserveddate,name FROM room_ind");
+            for (int x = 0; x < dt.Rows.Count; x++) {
+                var date = dt.Rows[x][0].ToString().Split(' ');
+                var resdate = dateTimeFrom.Text.Split(' ');
+                if (dt.Rows[x][1].ToString() == "Room " + txtRoomId.Text) {
+                    if (date[1] == resdate[1]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (txtEmail.Text.Contains('@')) {
@@ -324,27 +340,32 @@ namespace Reservation_System {
                 if (txtRoomOwner.Text == "" || txtEmail.Text == "") {
                     MessageBox.Show("Fill up all forms!");
                 } else {
-                    System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
-                    if (owner.Rows.Count == 0) {
-                        db.dbInsert("INSERT INTO client (name, email, phone) VALUES('" + txtRoomOwner.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "')");
+
+                    if (checkDateIfExist() == false) {
+                        System.Data.DataTable owner = db.dbSelect("SELECT * FROM client WHERE name='" + txtRoomOwner.Text + "'");
+                        if (owner.Rows.Count == 0) {
+                            db.dbInsert("INSERT INTO client (name, email, phone) VALUES('" + txtRoomOwner.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "')");
+                        } else {
+                            db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
+                        }
+                        decimal percent = (decimal)0.70;
+                        double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
+                        db.dbInsert("INSERT INTO room_ind (name, owner, reserveddate, email, phone, days, reference) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + dateTimeFrom.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + this.reference + "')");
+                        db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance, reference) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + dateTimeFrom.Text + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "', '" + this.reference + "')");
+                        showHide("client", false);
+                        showHide("menu", true);
+                        setRoomState();
+                        getRoomsCount();
+                        getCheckoutLog();
+                        sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
+                        RecentCheckOutTab.Hide();
+                        RecentCheckOutTab.Show();
+                        MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
+                        clearFields();
+                        genReference();
                     } else {
-                        db.dbUpdate("UPDATE client SET name = '" + txtRoomOwner.Text + "', email='" + txtEmail.Text + "', phone='" + txtMobile.Text + "' WHERE name='" + txtRoomOwner.Text + "'");
+                        MessageBox.Show("Reservation date exist!");
                     }
-                    decimal percent = (decimal)0.70;
-                    double formula = Convert.ToDouble((noOfDays.Value * 2000) - (((noOfDays.Value * 2000) * percent)));
-                    db.dbInsert("INSERT INTO room_ind (name, owner, reserveddate, email, phone, days, reference) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + this.reference + "')");
-                    db.dbInsert("INSERT INTO reservelog (name, owner, reserveddate, email, phone, days, balance, reference) VALUES('Room " + txtRoomId.Text + "', '" + txtRoomOwner.Text + "', '" + getDateTime() + "', '" + txtEmail.Text + "', '" + txtMobile.Text + "', '" + noOfDays.Value + "', '" + formula + "', '" + this.reference + "')");
-                    showHide("client", false);
-                    showHide("menu", true);
-                    setRoomState();
-                    getRoomsCount();
-                    getCheckoutLog();
-                    sendMail(txtRoomOwner.Text, txtEmail.Text, txtRoomId.Text, dateTimeFrom.Text, noOfDays.Value);
-                    RecentCheckOutTab.Hide();
-                    RecentCheckOutTab.Show();
-                    MessageBox.Show("Room Reserved to " + txtRoomOwner.Text);
-                    clearFields();
-                    genReference();
                 }
             } else {
                 MessageBox.Show("Enter valid email address!");
@@ -531,7 +552,7 @@ namespace Reservation_System {
             if (result.Equals(DialogResult.OK)) {
                 dbClass db = new dbClass();
                 db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1, reference='' WHERE id=" + txtRoomId.Text);
-                db.dbUpdate("UPDATE reservelog SET state='checkout', checkoutdate='" + getDateTime() + "' WHERE name='Room " + txtRoomId.Text + "'");
+                db.dbUpdate("UPDATE reservelog SET state='checkout', checkoutdate='" + getDateTime() + "' WHERE reference='" + labelRef.Text + "'");
                 showHide("menu", true);
                 showHide("client", false);
                 setRoomState();
@@ -652,7 +673,7 @@ namespace Reservation_System {
 
         private void getRoomInd() {
             dbClass db = new dbClass();
-            System.Data.DataTable dt = db.dbSelect("SELECT reference,name,owner,reserveddate as 'date',email,phone,days FROM room_ind");
+            System.Data.DataTable dt = db.dbSelect("SELECT reference,name,owner,reserveddate as 'date',email,phone,days FROM room_ind ORDER BY id DESC");
             dataGridView5.DataSource = dt;
             dataGridView5.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView5.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -663,7 +684,7 @@ namespace Reservation_System {
             dataGridView5.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void dataGridView5_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
             try {
                 this.reff = dataGridView5.CurrentRow.Cells[0].Value.ToString();
                 this.name = dataGridView5.CurrentRow.Cells[1].Value.ToString();
@@ -673,9 +694,7 @@ namespace Reservation_System {
                 this.phone = dataGridView5.CurrentRow.Cells[5].Value.ToString();
                 this.days = dataGridView5.CurrentRow.Cells[6].Value.ToString();
             } catch (Exception) { }
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e) {
+            
             dbClass db = new dbClass();
             DialogResult result = MessageBox.Show("Check in?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK)) {

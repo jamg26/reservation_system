@@ -70,8 +70,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.room11 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.tabLogPage = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -164,7 +162,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.room12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabLogPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -702,7 +699,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.toolStrip1);
             this.tabPage2.Controls.Add(this.dataGridView5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -711,28 +707,6 @@
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Reservation List";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 385);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(484, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(64, 22);
-            this.toolStripButton1.Text = "CHECK IN";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // dataGridView5
             // 
@@ -744,7 +718,7 @@
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.Size = new System.Drawing.Size(481, 404);
             this.dataGridView5.TabIndex = 0;
-            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            this.dataGridView5.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentDoubleClick);
             // 
             // tabLogPage
             // 
@@ -1454,7 +1428,7 @@
             this.btnPaid.Name = "btnPaid";
             this.btnPaid.Size = new System.Drawing.Size(91, 31);
             this.btnPaid.TabIndex = 38;
-            this.btnPaid.Text = "PAID";
+            this.btnPaid.Text = "CHECK IN";
             this.btnPaid.UseVisualStyleBackColor = true;
             this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
@@ -1520,9 +1494,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.room12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.room11)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabLogPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1665,8 +1636,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label labelt_res;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
