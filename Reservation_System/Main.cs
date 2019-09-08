@@ -654,7 +654,7 @@ namespace Reservation_System {
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Cancel", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Cancel", "Confirm", MessageBoxDefaultButton.Button1, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK)) {
                 dbClass db = new dbClass();
                 db.dbUpdate("UPDATE room SET owner = '', state='available', reserveddate='', email='', phone='', days=1 WHERE id=" + txtRoomId.Text);
